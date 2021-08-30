@@ -16,6 +16,7 @@ public class PromocionPorcentual extends Promocion {
 		return atraccion1.getDuracionEnHoras() + atraccion2.getDuracionEnHoras();
 	}
 	
+	@Override
 	public double getPrecioPromocion() {
 		double precio = atraccion1.getPrecio() + atraccion2.getPrecio();
 		double descuento = precio * DESCUENTO;

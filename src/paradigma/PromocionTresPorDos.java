@@ -16,6 +16,7 @@ public class PromocionTresPorDos extends Promocion {
 		return atraccion1.getDuracionEnHoras() + atraccion2.getDuracionEnHoras() + atraccion3.getDuracionEnHoras();
 	}
 	
+	@Override
 	public double getPrecioPromocion() {
 		return atraccion1.getPrecio() + atraccion2.getPrecio();
 	}  

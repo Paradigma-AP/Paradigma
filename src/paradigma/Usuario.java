@@ -6,14 +6,14 @@ public class Usuario {
 	private double presupuesto;
 	private TipoDeAtraccion atraccionPreferida;
 
-	
+
 	public Usuario(String nombre, int tiempoDisponibleEnHoras, double presupuesto, TipoDeAtraccion atraccionPreferida) {
 		this.nombre = nombre;
 		this.tiempoDisponibleEnHoras = tiempoDisponibleEnHoras;
 		this.presupuesto = presupuesto;
 		this.atraccionPreferida = atraccionPreferida;
 	}
-	
+
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -27,23 +27,23 @@ public class Usuario {
 		return this.atraccionPreferida;
 	}
 	
-	public void puedoComprar() { // si atraccion o promocion. get precio y get cupo <= this.presupuesto y this.tiempoDisp entonces si. 
+	public boolean puedeComprarAtraccion(Atraccion atraccion) { 
+		boolean disponeDePresupuesto = this.presupuesto >= atraccion.getPrecio();
+		boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= atraccion.getDuracionEnHoras();
+		return disponeDePresupuesto && disponeDeTiempo;
 	}
 	
-	public void elegirAtracciones() {
-		// implementar
+	public boolean puedeComprarPromocion(Promocion promocion) { 
+		boolean disponeDePresupuesto = this.presupuesto >= promocion.getPrecioPromocion();
+		boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= promocion.getDuracionDePromocionEnHoras();
+		return disponeDePresupuesto && disponeDeTiempo;
 	}
 	
-	public void restarDineroDelPresupuesto() {
-		//implementar
+	public synchronized void restarPresupuestoYtiempo(double precio, int horas) {
+		this.presupuesto -= precio;
+		this.tiempoDisponibleEnHoras -= horas;
 	}
-	
-	public void restarTiempoDisponible(){
-		//implementar
-	}
-	
-	
-	
-	
+
 
 }
+

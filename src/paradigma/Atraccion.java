@@ -6,7 +6,6 @@ public class Atraccion {
 	private double precio;
 	private int cupoDisponible;
 	private TipoDeAtraccion tipoDeAtraccion;
-	private boolean vendida;
 	
 	public Atraccion(String nombre, int duracionEnHoras, double precio, 
 			int cupo, TipoDeAtraccion tipoDeAtraccion) {
@@ -36,23 +35,13 @@ public class Atraccion {
 	public TipoDeAtraccion getTipoDeAtraccion() {
 		return this.tipoDeAtraccion;
 	}
-		
+	
 	public boolean estaLleno(){ 
 			return cupoDisponible == 0;
-		}
-		
-	public boolean vendida() {
-		return this.vendida;
 	}
-	
+
 	public void restarCupo(){
-		if (vendida == true) {
-			this.cupoDisponible -= 1;
-		}
+		this.cupoDisponible -= 1;
 	}
 	
-	public boolean puedeVenderse() {
-		return !this.estaLleno();
-	}
-	
-} 
+}

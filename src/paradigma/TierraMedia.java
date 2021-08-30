@@ -11,6 +11,10 @@ public class TierraMedia {
 	 Sugerir visitas por pref de usuario
 	 generar itinerarios 
 	 METODO Vender 
-	 
+	 ordenar atraccioes y promociones, segun pref de usuario
 	 */
+	
+	public void sugerirItinerario(Atraccion [] atracciones, Promocion [] promociones, Usuario [] usuarios ) {
+		 
+	}
 }
