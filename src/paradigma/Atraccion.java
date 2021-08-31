@@ -3,11 +3,11 @@ package paradigma;
 public class Atraccion {
 	private String nombre;
 	private int duracionEnHoras;
-	private double precio;
+	private int precio;
 	private int cupoDisponible;
 	private TipoDeAtraccion tipoDeAtraccion;
 	
-	public Atraccion(String nombre, int duracionEnHoras, double precio, 
+	public Atraccion(String nombre, int duracionEnHoras, int precio, 
 			int cupo, TipoDeAtraccion tipoDeAtraccion) {
 		this.nombre = nombre;
 		this.duracionEnHoras = duracionEnHoras;
@@ -24,7 +24,7 @@ public class Atraccion {
 		return this.duracionEnHoras;
 	}
 
-	public double getPrecio() {
+	public int getPrecio() {
 		return this.precio;
 	}
 

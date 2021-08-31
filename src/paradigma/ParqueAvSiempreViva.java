@@ -1,6 +1,6 @@
 package paradigma;
 
-public class TierraMedia {
+public class ParqueAvSiempreViva {
 	public Atraccion [] atracciones;
 	public Promocion [] promociones;
 	public Usuario [] usuarios;
@@ -14,7 +14,7 @@ public class TierraMedia {
 	 ordenar atraccioes y promociones, segun pref de usuario
 	 */
 	
-	public void sugerirItinerario(Atraccion [] atracciones, Promocion [] promociones, Usuario [] usuarios ) {
+	public void sugerirItinerario () {
 		 
 	}
 }

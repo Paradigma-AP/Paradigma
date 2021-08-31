@@ -1,0 +1,11 @@
+Homero 8 50
+Marge 9 45
+Bart 12 35
+Lisa 11 35
+Milhouse 11 70
+Ned 6 30
+Rod 9 25
+Todd 9 25
+Patty 10 32
+Selma 10 33
+

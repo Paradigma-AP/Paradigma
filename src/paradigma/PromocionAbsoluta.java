@@ -3,7 +3,7 @@ package paradigma;
 public class PromocionAbsoluta extends Promocion {
 	private Atraccion atraccion1;
 	private Atraccion atraccion2;
-	private static final double DESCUENTO = 10;
+	private static final double DESCUENTO = 3;
 
 	
 	public PromocionAbsoluta(String nombre, TipoDeAtraccion tipoDePromocion, Atraccion atraccion, Atraccion otraAtraccion ) {
