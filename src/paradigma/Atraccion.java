@@ -20,6 +20,35 @@ public class Atraccion {
 		return this.nombre;
 	}
 
+	public Atraccion() {
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setDuracionEnHoras(int duracionEnHoras) {
+		this.duracionEnHoras = duracionEnHoras;
+	}
+
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+
+	public void setCupoDisponible(int cupoDisponible) {
+		this.cupoDisponible = cupoDisponible;
+	}
+
+	public void setTipoDeAtraccion(TipoDeAtraccion tipoDeAtraccion) {
+		this.tipoDeAtraccion = tipoDeAtraccion;
+	}
+
+	@Override
+	public String toString() {
+		return "Atraccion [nombre=" + nombre + ", duracionEnHoras=" + duracionEnHoras + ", precio=" + precio
+				+ ", cupoDisponible=" + cupoDisponible + ", tipoDeAtraccion=" + tipoDeAtraccion + "]";
+	}
+
 	public int getDuracionEnHoras() {
 		return this.duracionEnHoras;
 	}
@@ -43,5 +72,6 @@ public class Atraccion {
 	public void restarCupo(){
 		this.cupoDisponible -= 1;
 	}
+
 	
 }

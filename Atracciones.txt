@@ -1,13 +1,10 @@
-public Atraccion(String nombre, int duracionEnHoras, double precio, 
-			int cupo, TipoDeAtraccion tipoDeAtraccion) 
-
-KrustyBurguer 2 4 7 GASTRONOMIA bart lisa rod todd milhouse
-TabernaDeMoe 4 6 5 GASTRONOMIA homero patty selma 
-Kwik-E-Mart 1 2 4 GASTRONOMIA Ned Marge 
-MonteSpringfield 2 2 10 VISITA_GUIADA todos 
-LaPlantaNuclear 3 2 4 VISITA_GUIADA homero Marge 
-PenitenciariaDeSpringfield 2 4 5 VISITA_GUIADA bart lisa milhouse
-MuseoJeremíasSpringfield 1 1 5 VISITA_GUIADA Patty Selma lisa 
-ElMonorriel 1 3 3 AVENTURA homero bart 
-LaFabricaDeCajas 3 2 4 AVENTURA todos 
-LaTierraDeTomyYdaly 2 5 6 AVENTURA bart lisa rod todd milhouse
+KrustyBurguer 2 4 5 GASTRONOMIA
+TabernaDeMoe 4 6 4 GASTRONOMIA
+Kwik-E-Mart 1 2 5 GASTRONOMIA
+MonteSpringfield 2 2 10 VISITA_GUIADA
+LaPlantaNuclear 3 2 4 VISITA_GUIADA
+PenitenciariaDeSpringfield 2 4 4 VISITA_GUIADA
+MuseoJeremíasSpringfield 1 1 2 VISITA_GUIADA
+ElMonorriel 1 3 1 AVENTURA
+LaFabricaDeCajas 3 2 5 AVENTURA
+LaTierraDeTomyYdaly 2 5 8 AVENTURA

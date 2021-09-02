@@ -1,6 +1,3 @@
-public PromocionAbsoluta(String nombre, TipoDeAtraccion tipoDePromocion, Atraccion atraccion, Atraccion otraAtraccion )
-
-
-PromoAventura AVENTURA LaTierraDeTomyYdaly LaFabricaDeCajas bart lisa rod todd milhouse pagan 6 monedas
-PromoDePaseo VISITA_GUIADA PenitenciariaDeSpringfield MonteSpringfield MuseoJeremíasSpringfield pagan 4 lisa compra pack 
-PromoGastronomica GASTRONOMIA KrustyBurguer TabernaDeMoe pagan 8 monedas 
+PromoAventura AVENTURA LaTierraDeTomyYdaly LaFabricaDeCajas	
+PromoDePaseo VISITA_GUIADA PenitenciariaDeSpringfield MonteSpringfield MuseoJeremíasSpringfield
+PromoGastronomica GASTRONOMIA Kwik-E-Mart TabernaDeMoe	

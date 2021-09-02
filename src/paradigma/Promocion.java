@@ -3,6 +3,14 @@ package paradigma;
 public abstract class Promocion {
 
 	private String nombre;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setTipoDePromocion(TipoDeAtraccion tipoDePromocion) {
+		this.tipoDePromocion = tipoDePromocion;
+	}
+
 	private TipoDeAtraccion tipoDePromocion;
 
 	public Promocion(String nombre, TipoDeAtraccion tipoDePromocion) {
@@ -10,6 +18,9 @@ public abstract class Promocion {
 		this.tipoDePromocion = tipoDePromocion;
 	}
 	
+	public Promocion() {
+	}
+
 	public String getNombre() {
 		return this.nombre;
 	}

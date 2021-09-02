@@ -2,91 +2,97 @@ package paradigma;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class LeerYguardarArchivos {
 	
-	public static LinkedList<Usuario> getUsuarios(String usuarios) {
-		LinkedList<Usuario> usuario = new LinkedList<Usuario>();
+	public static LinkedList<Usuario> getUsuarios(String archivo) {
+		LinkedList<Usuario> usuarios = new LinkedList<Usuario>();
 		Scanner sc = null;
 		try {
-			sc = new Scanner(new File(usuarios));
+			sc = new Scanner(new File(archivo));
 
 			while (sc.hasNext()) {
 				String linea = sc.nextLine();
-				String datos[] = linea.split(" ");
-				String nombre = datos[0];
-				int tiempoDisponibleEnHoras = Integer.parseInt(datos[1]);
-				int presupuesto = Integer.parseInt(datos[2]);
-				TipoDeAtraccion atraccionPreferida = TipoDeAtraccion.valueOf(datos[3]);
-				Usuario u = new Usuario(nombre, tiempoDisponibleEnHoras, presupuesto, atraccionPreferida);
+				String datos[] = linea.split(",");
+				Usuario u = new Usuario();
+				u.setNombre(datos[0]);
+				u.setTiempoDisponibleEnHoras(Integer.parseInt(datos[1]));
+				u.setPresupuesto(Integer.parseInt(datos[2]));
+				u.setAtraccionPreferida(TipoDeAtraccion.valueOf(datos[3]));
+				//System.out.println(u);
+				if (!usuarios.contains(u))
+					usuarios.add(u);
 
-				if (!usuario.contains(u))
-					usuario.add(u);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		sc.close();
-		return usuario;
+		return usuarios;
 	}
 	
-	
-/*
-	public static void ordenarPersonasPorDNI(List<Persona> lista) {
-		Collections.sort(lista, new DniComparator());
-	}
+	public static ArrayList<Atraccion> getAtracciones(String archivo) {
+		ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
+		Scanner sc = null;
+		try {
+			sc = new Scanner(new File(archivo));
 
-	public static void ordenarPersonasPorApellido(List<Persona> lista) {
-		Collections.sort(lista, new ApellidoComparator());
-	}
+			while (sc.hasNext()) {
+				String linea = sc.nextLine();
+				String datos[] = linea.split(" ");
+				Atraccion a = new Atraccion();
+				a.setNombre(datos[0]);
+				a.setDuracionEnHoras(Integer.parseInt(datos[1]));
+				a.setPrecio(Integer.parseInt(datos[2]));
+				a.setCupoDisponible(Integer.parseInt(datos[3]));
+				a.setTipoDeAtraccion(TipoDeAtraccion.valueOf(datos[4]));
+				if (!atracciones.contains(a))
+					atracciones.add(a);
 
-	public static void ordenarPersonasPorEdad(List<Persona> lista) {
-		Collections.sort(lista, new EdadComparator());
-	}
-
-	public static List<Persona> getPersonasMayoresDeEdad(List<Persona> personas, Integer edad) {
-		// LinkedList<Persona> personasMayores = new LinkedList<Persona>();
-		List<Persona> personasMayores = new ArrayList<Persona>();
-
-		for (Persona cu : personas)
-			if (cu.getEdad() > edad)
-				personasMayores.add(cu);
-
-		return personasMayores;
-
-	}
-
-	public static void escribirPersonas(List<Usuario> usuarios, String file) throws IOException {
-		
-		PrintWriter salida = new PrintWriter(new FileWriter(file));
-		
-		for (Usuario usuario : usuarios) {
-			salida.println(usuario);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		}
-		salida.close();
+		//c.close();
+		return atracciones;
 	}
 	
-	
-	public static void escribirMayoresDeEdadOrdenadasPorDNI(List<Persona> personas, int edad) 
-			throws IOException{
-		
-		List<Persona> personasMayores = getPersonasMayoresDeEdad(personas, edad);
-		ordenarPersonasPorDNI(personasMayores);
-		escribirPersonas(personasMayores, "MayoresDe"+edad+"OrdenadosPorDNI"+".csv");
-		
+	public static ArrayList<Promocion> getPromociones(String archivo) {
+		ArrayList<Promocion> promociones = new ArrayList<Promocion>();
+		Scanner sc = null;
+		try {
+			sc = new Scanner(new File(archivo));
 
+			while (sc.hasNext()) {
+				String linea = sc.nextLine();
+				String datos[] = linea.split(" ");
+				PromocionAbsoluta p = new PromocionAbsoluta();
+				p.setNombre(datos[0]);
+				p.setTipoDePromocion(TipoDeAtraccion.valueOf(datos[1]));
+				p.setAtraccion1((datos[2]));
+				p.setAtraccion2((datos[3]));
+				PromocionAbsoluta p = new PromocionAbsoluta();
+				p.setNombre(datos[0]);
+				p.setTipoDePromocion(TipoDeAtraccion.valueOf(datos[1]));
+				p.setAtraccion1(Atraccion.get(1));
+				p.setAtraccion2((datos[3]));
+				PromocionAbsoluta p = new PromocionAbsoluta();
+				p.setNombre(datos[0]);
+				p.setTipoDePromocion(TipoDeAtraccion.valueOf(datos[1]));
+				p.setAtraccion1((datos[2]));
+				p.setAtraccion2((datos[3]));
+				
+				if (!promociones.contains(p))
+					promociones.add(p);
+
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		sc.close();
+		return promociones;
 	}
-	
-	public static void escribirMayoresDeEdadOrdenadasPorEdad(List<Persona> personas, int edad) 
-			throws IOException{
-		
-		List<Persona> personasMayores = getPersonasMayoresDeEdad(personas, edad);
-		ordenarPersonasPorEdad(personasMayores);
-		escribirPersonas(personasMayores, "MayoresDe"+edad+"OrdenadosPorEdad"+".csv");		
-
-	}*/
-
-
 }

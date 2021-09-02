@@ -13,8 +13,9 @@ public class ParqueAvSiempreViva {
 	 METODO Vender 
 	 ordenar atraccioes y promociones, segun pref de usuario
 	 */
-	
-	public void sugerirItinerario () {
-		 
+	public static void main(String[] args) {
+		System.out.println(LeerYguardarArchivos.getUsuarios("usuarios.txt"));
+		System.out.println(LeerYguardarArchivos.getAtracciones("Atracciones.txt"));
+
 	}
 }

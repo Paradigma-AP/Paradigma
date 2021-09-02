@@ -6,6 +6,25 @@ public class PromocionAbsoluta extends Promocion {
 	private static final double DESCUENTO = 3;
 
 	
+	public PromocionAbsoluta() {
+	}
+
+	public Atraccion getAtraccion1() {
+		return atraccion1;
+	}
+
+	public void setAtraccion1(Atraccion atraccion1) {
+		this.atraccion1 = atraccion1;
+	}
+
+	public Atraccion getAtraccion2() {
+		return atraccion2;
+	}
+
+	public void setAtraccion2(Atraccion atraccion2) {
+		this.atraccion2 = atraccion2;
+	}
+
 	public PromocionAbsoluta(String nombre, TipoDeAtraccion tipoDePromocion, Atraccion atraccion, Atraccion otraAtraccion ) {
 		super(nombre, tipoDePromocion);
 		this.atraccion1 = atraccion;

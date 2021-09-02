@@ -1,5 +1,5 @@
 package paradigma;
 
 public enum TipoDeAtraccion {
-	PAISAJE, AVENTURA, DEGUSTACION
+		VISITA_GUIADA, AVENTURA, GASTRONOMIA
 }

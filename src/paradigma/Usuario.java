@@ -6,17 +6,35 @@ public class Usuario {
 	private int presupuesto;
 	private TipoDeAtraccion atraccionPreferida;
 
+	public Usuario() {
+		// TODO Auto-generated constructor stub
+	}
 
-	public Usuario(String nombre, int tiempoDisponibleEnHoras, int presupuesto, TipoDeAtraccion atraccionPreferida) {
-		this.nombre = nombre;
-		this.tiempoDisponibleEnHoras = tiempoDisponibleEnHoras;
-		this.presupuesto = presupuesto;
-		this.atraccionPreferida = atraccionPreferida;
+	@Override
+	public String toString() {
+		return "Usuario [nombre=" + nombre + ", tiempoDisponibleEnHoras=" + tiempoDisponibleEnHoras + ", presupuesto="
+				+ presupuesto + ", atraccionPreferida=" + atraccionPreferida + "]";
 	}
 
 	public String getNombre() {
 		return this.nombre;
 	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setTiempoDisponibleEnHoras(int tiempoDisponibleEnHoras) {
+		this.tiempoDisponibleEnHoras = tiempoDisponibleEnHoras;
+	}
+
+	public void setPresupuesto(int presupuesto) {
+		this.presupuesto = presupuesto;
+	}
+
+	public void setAtraccionPreferida(TipoDeAtraccion atraccionPreferida) {
+		this.atraccionPreferida = atraccionPreferida;
+	}
+
 	public int getTiempoDisponibleEnHoras() {
 		return this.tiempoDisponibleEnHoras;
 	}
