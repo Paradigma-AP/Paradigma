@@ -6,62 +6,43 @@ public class Usuario {
 	private int presupuesto;
 	private TipoDeAtraccion atraccionPreferida;
 
-	public Usuario() {
-		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public String toString() {
-		return "Usuario [nombre=" + nombre + ", tiempoDisponibleEnHoras=" + tiempoDisponibleEnHoras + ", presupuesto="
-				+ presupuesto + ", atraccionPreferida=" + atraccionPreferida + "]";
-	}
-
-	public String getNombre() {
-		return this.nombre;
-	}
-	public void setNombre(String nombre) {
+	public Usuario(String nombre, int tiempoDisponibleEnHoras, int presupuesto, TipoDeAtraccion atraccionPreferida) {
 		this.nombre = nombre;
-	}
-
-	public void setTiempoDisponibleEnHoras(int tiempoDisponibleEnHoras) {
 		this.tiempoDisponibleEnHoras = tiempoDisponibleEnHoras;
-	}
-
-	public void setPresupuesto(int presupuesto) {
 		this.presupuesto = presupuesto;
-	}
-
-	public void setAtraccionPreferida(TipoDeAtraccion atraccionPreferida) {
 		this.atraccionPreferida = atraccionPreferida;
 	}
 
-	public int getTiempoDisponibleEnHoras() {
-		return this.tiempoDisponibleEnHoras;
+	public boolean puedeComprarAtraccion(Atraccion [] atraccion) { 
+		int i = 0;
+		while(i <= atraccion.length) {
+			boolean disponeDePresupuesto = this.presupuesto >= atraccion[i].getPrecio();
+			boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= atraccion[i].getDuracionEnHoras();
+			return disponeDePresupuesto && disponeDeTiempo;
+		}
+		return false;
 	}
-	public int getPresupuesto() {
-		return this.presupuesto;
+
+	public boolean puedeComprarPromocion(Promocion [] promocion) { 
+		int i = 0;
+		while(i <= promocion.length) {
+			boolean disponeDePresupuesto = this.presupuesto >= promocion[i].getPrecioPromocion();
+			boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= promocion[i].getDuracionDePromocionEnHoras();
+			return disponeDePresupuesto && disponeDeTiempo;
+		}
+		return false;
 	}
-	public TipoDeAtraccion getAtraccionPreferida() {
-		return this.atraccionPreferida;
-	}
-	
-	public boolean puedeComprarAtraccion(Atraccion atraccion) { 
-		boolean disponeDePresupuesto = this.presupuesto >= atraccion.getPrecio();
-		boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= atraccion.getDuracionEnHoras();
-		return disponeDePresupuesto && disponeDeTiempo;
-	}
-	
-	public boolean puedeComprarPromocion(Promocion promocion) { 
-		boolean disponeDePresupuesto = this.presupuesto >= promocion.getPrecioPromocion();
-		boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= promocion.getDuracionDePromocionEnHoras();
-		return disponeDePresupuesto && disponeDeTiempo;
-	}
-	
+
 	public synchronized void restarPresupuestoYtiempo(int precio, int horas) {
 		this.presupuesto -= precio;
 		this.tiempoDisponibleEnHoras -= horas;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuario [Nombre= " + nombre + ", Tiempo disponible en horas= " + tiempoDisponibleEnHoras + ", Presupuesto= "
+				+ presupuesto + ", Atraccion preferida= " + atraccionPreferida + "]";
+	}
 
 }
 

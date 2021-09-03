@@ -13,9 +13,16 @@ public class ParqueAvSiempreViva {
 	 METODO Vender 
 	 ordenar atraccioes y promociones, segun pref de usuario
 	 */
-	public static void main(String[] args) {
-		System.out.println(LeerYguardarArchivos.getUsuarios("usuarios.txt"));
-		System.out.println(LeerYguardarArchivos.getAtracciones("Atracciones.txt"));
 
+	public Atraccion obtenerAtraccionPorNombre(String nombre) {
+		for (Atraccion atraccion : atracciones) {
+			if(atraccion.getNombre().equals(nombre)) {
+				return atraccion;
+			}
+		}
+		return null;
 	}
+	
+	
+	
 }

@@ -1,98 +1,168 @@
 package paradigma;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class LeerYguardarArchivos {
-	
-	public static LinkedList<Usuario> getUsuarios(String archivo) {
-		LinkedList<Usuario> usuarios = new LinkedList<Usuario>();
-		Scanner sc = null;
-		try {
-			sc = new Scanner(new File(archivo));
 
-			while (sc.hasNext()) {
-				String linea = sc.nextLine();
-				String datos[] = linea.split(",");
-				Usuario u = new Usuario();
-				u.setNombre(datos[0]);
-				u.setTiempoDisponibleEnHoras(Integer.parseInt(datos[1]));
-				u.setPresupuesto(Integer.parseInt(datos[2]));
-				u.setAtraccionPreferida(TipoDeAtraccion.valueOf(datos[3]));
-				//System.out.println(u);
-				if (!usuarios.contains(u))
-					usuarios.add(u);
+	public static Usuario[] getUsuariosDesdeArchivos() {
+		File archivo = null;
+		FileReader fr = null;
+		BufferedReader br = null;
+		Usuario[] usuario = null;
+
+		try {
+			archivo = new File("Usuarios.txt");
+			fr = new FileReader(archivo);
+			br = new BufferedReader(fr);
+
+			int cantidad = Integer.parseInt(br.readLine());
+			usuario = new Usuario[cantidad];
+
+			int contador = 0;
+			String linea = br.readLine();
+			while (linea != null) {
+				String[] datosUsuarios = linea.split(" ");
+				String nombre = datosUsuarios[0];
+				int tiempoDisponibleEnHoras = Integer.parseInt(datosUsuarios[1]);
+				int presupuesto = Integer.parseInt(datosUsuarios[2]);
+				TipoDeAtraccion tipoDeAtraccionPreferida = paradigma.TipoDeAtraccion.valueOf(datosUsuarios[3]);
+
+				usuario[contador++] = new Usuario(nombre, tiempoDisponibleEnHoras, presupuesto, tipoDeAtraccionPreferida);
+				linea = br.readLine();
+			}
+
+			return usuario;
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fr != null) {
+					fr.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
 
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		}
-		sc.close();
-		return usuarios;
+		return usuario;
 	}
 	
-	public static ArrayList<Atraccion> getAtracciones(String archivo) {
-		ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
-		Scanner sc = null;
-		try {
-			sc = new Scanner(new File(archivo));
+	public static Atraccion[] getAtraccionesDesdeArchivos() {
+		File archivo = null;
+		FileReader fr = null;
+		BufferedReader br = null;
+		Atraccion[] atraccion = null;
 
-			while (sc.hasNext()) {
-				String linea = sc.nextLine();
-				String datos[] = linea.split(" ");
-				Atraccion a = new Atraccion();
-				a.setNombre(datos[0]);
-				a.setDuracionEnHoras(Integer.parseInt(datos[1]));
-				a.setPrecio(Integer.parseInt(datos[2]));
-				a.setCupoDisponible(Integer.parseInt(datos[3]));
-				a.setTipoDeAtraccion(TipoDeAtraccion.valueOf(datos[4]));
-				if (!atracciones.contains(a))
-					atracciones.add(a);
+		try {
+			archivo = new File("Atracciones.txt");
+			fr = new FileReader(archivo);
+			br = new BufferedReader(fr);
+
+			int cantidad = Integer.parseInt(br.readLine());
+			atraccion = new Atraccion[cantidad];
+
+			int contador = 0;
+			String linea = br.readLine();
+			while (linea != null) {
+				String[] datosAtracciones = linea.split(" ");
+				String nombre = datosAtracciones[0];
+				int duracionEnHoras = Integer.parseInt(datosAtracciones[1]);
+				int precio = Integer.parseInt(datosAtracciones[2]);
+				int cupoDisponible = Integer.parseInt(datosAtracciones[3]);
+				TipoDeAtraccion tipoDeAtraccion = paradigma.TipoDeAtraccion.valueOf(datosAtracciones[4]);
+
+				atraccion[contador++] = new Atraccion(nombre, duracionEnHoras, precio, cupoDisponible, tipoDeAtraccion);
+				linea = br.readLine();
+			}
+
+			return atraccion;
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fr != null) {
+					fr.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
 
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		}
-		//c.close();
-		return atracciones;
+		return atraccion;
 	}
-	
-	public static ArrayList<Promocion> getPromociones(String archivo) {
-		ArrayList<Promocion> promociones = new ArrayList<Promocion>();
-		Scanner sc = null;
+
+	public static Promocion[] obtenerPromocionesDesdeArchivo(ParqueAvSiempreViva parque) {
+		File archivo = null;
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		Promocion[] promos = null;
+
 		try {
-			sc = new Scanner(new File(archivo));
+			archivo = new File("Promociones.txt");
+			fr = new FileReader(archivo);
+			br = new BufferedReader(fr);
 
-			while (sc.hasNext()) {
-				String linea = sc.nextLine();
-				String datos[] = linea.split(" ");
-				PromocionAbsoluta p = new PromocionAbsoluta();
-				p.setNombre(datos[0]);
-				p.setTipoDePromocion(TipoDeAtraccion.valueOf(datos[1]));
-				p.setAtraccion1((datos[2]));
-				p.setAtraccion2((datos[3]));
-				PromocionAbsoluta p = new PromocionAbsoluta();
-				p.setNombre(datos[0]);
-				p.setTipoDePromocion(TipoDeAtraccion.valueOf(datos[1]));
-				p.setAtraccion1(Atraccion.get(1));
-				p.setAtraccion2((datos[3]));
-				PromocionAbsoluta p = new PromocionAbsoluta();
-				p.setNombre(datos[0]);
-				p.setTipoDePromocion(TipoDeAtraccion.valueOf(datos[1]));
-				p.setAtraccion1((datos[2]));
-				p.setAtraccion2((datos[3]));
-				
-				if (!promociones.contains(p))
-					promociones.add(p);
+			int cantidad = Integer.parseInt(br.readLine());
+			promos = new Promocion[cantidad];
+			int contador = 0;
 
+			String linea = br.readLine();
+			while (linea != null) {
+				String[] datosPromos = linea.split(" ");
+				if(datosPromos[0] == "PromoAventura") {
+				String nombre = datosPromos[0];
+				TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[4]);
+				String[] atraccionesString = datosPromos[1].split(",");
+				Atraccion[] atracciones = new Atraccion[atraccionesString.length];
+				for (int i = 0; i < atraccionesString.length; i++) {
+					atracciones[i] = parque.obtenerAtraccionPorNombre(atraccionesString[i]);
+				}
+
+				promos[contador++] = new PromocionAbsoluta(nombre, tipoDePromocion, atracciones);
+				}
+				if(datosPromos[0] == "PromoDePaseo") {
+					String nombre = datosPromos[0];
+					TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[4]);
+					String[] atraccionesString = datosPromos[1].split(",");
+					Atraccion[] atracciones = new Atraccion[atraccionesString.length];
+					for (int i = 0; i < atraccionesString.length; i++) {
+						atracciones[i] = parque.obtenerAtraccionPorNombre(atraccionesString[i]);
+					}
+
+					promos[contador++] = new PromocionTresPorDos(nombre, tipoDePromocion, atracciones);
+				}
+				if(datosPromos[0] == "PromoGastronomica") {
+					String nombre = datosPromos[0];
+					TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[4]);
+					String[] atraccionesString = datosPromos[1].split(",");
+					Atraccion[] atracciones = new Atraccion[atraccionesString.length];
+					for (int i = 0; i < atraccionesString.length; i++) {
+						atracciones[i] = parque.obtenerAtraccionPorNombre(atraccionesString[i]);
+					}
+					promos[contador++] = new PromocionPorcentual(nombre, tipoDePromocion, atracciones);
+				}
+				linea = br.readLine();
 			}
-		} catch (FileNotFoundException e) {
+			return promos;
+
+		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				if (fr != null) {
+					fr.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 		}
-		sc.close();
-		return promociones;
+		return promos;
 	}
+
 }

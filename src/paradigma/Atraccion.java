@@ -15,56 +15,27 @@ public class Atraccion {
 		this.cupoDisponible = cupo;
 		this.tipoDeAtraccion = tipoDeAtraccion;
 	}
-
+	
 	public String getNombre() {
-		return this.nombre;
-	}
-
-	public Atraccion() {
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public void setDuracionEnHoras(int duracionEnHoras) {
-		this.duracionEnHoras = duracionEnHoras;
-	}
-
-	public void setPrecio(int precio) {
-		this.precio = precio;
-	}
-
-	public void setCupoDisponible(int cupoDisponible) {
-		this.cupoDisponible = cupoDisponible;
-	}
-
-	public void setTipoDeAtraccion(TipoDeAtraccion tipoDeAtraccion) {
-		this.tipoDeAtraccion = tipoDeAtraccion;
-	}
-
-	@Override
-	public String toString() {
-		return "Atraccion [nombre=" + nombre + ", duracionEnHoras=" + duracionEnHoras + ", precio=" + precio
-				+ ", cupoDisponible=" + cupoDisponible + ", tipoDeAtraccion=" + tipoDeAtraccion + "]";
+		return nombre;
 	}
 
 	public int getDuracionEnHoras() {
-		return this.duracionEnHoras;
+		return duracionEnHoras;
 	}
 
 	public int getPrecio() {
-		return this.precio;
+		return precio;
 	}
 
 	public int getCupoDisponible() {
-		return this.cupoDisponible;
+		return cupoDisponible;
 	}
 
 	public TipoDeAtraccion getTipoDeAtraccion() {
-		return this.tipoDeAtraccion;
+		return tipoDeAtraccion;
 	}
-	
+
 	public boolean estaLleno(){ 
 			return cupoDisponible == 0;
 	}
@@ -72,6 +43,13 @@ public class Atraccion {
 	public void restarCupo(){
 		this.cupoDisponible -= 1;
 	}
+	
+	@Override
+	public String toString() {
+		return "Atraccion [nombre=" + nombre + ", duracionEnHoras=" + duracionEnHoras + ", precio=" + precio
+				+ ", cupoDisponible=" + cupoDisponible + ", tipoDeAtraccion=" + tipoDeAtraccion + "]";
+	}
+
 
 	
 }
