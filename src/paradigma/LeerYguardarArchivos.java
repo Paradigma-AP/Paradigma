@@ -24,13 +24,14 @@ public class LeerYguardarArchivos {
 			int contador = 0;
 			String linea = br.readLine();
 			while (linea != null) {
-				String[] datosUsuarios = linea.split(" ");
+				String[] datosUsuarios = linea.split(",");
 				String nombre = datosUsuarios[0];
 				int tiempoDisponibleEnHoras = Integer.parseInt(datosUsuarios[1]);
 				int presupuesto = Integer.parseInt(datosUsuarios[2]);
 				TipoDeAtraccion tipoDeAtraccionPreferida = paradigma.TipoDeAtraccion.valueOf(datosUsuarios[3]);
 
-				usuario[contador++] = new Usuario(nombre, tiempoDisponibleEnHoras, presupuesto, tipoDeAtraccionPreferida);
+				usuario[contador++] = new Usuario(nombre, tiempoDisponibleEnHoras, presupuesto,
+						tipoDeAtraccionPreferida);
 				linea = br.readLine();
 			}
 
@@ -50,7 +51,7 @@ public class LeerYguardarArchivos {
 		}
 		return usuario;
 	}
-	
+
 	public static Atraccion[] getAtraccionesDesdeArchivos() {
 		File archivo = null;
 		FileReader fr = null;
@@ -96,7 +97,7 @@ public class LeerYguardarArchivos {
 		return atraccion;
 	}
 
-	public static Promocion[] obtenerPromocionesDesdeArchivo(ParqueAvSiempreViva parque) {
+	public static Promocion[] getPromocionesDesdeArchivo(ParqueAvSiempreViva parque) {
 		File archivo = null;
 		FileReader fr = null;
 		BufferedReader br = null;
@@ -115,39 +116,39 @@ public class LeerYguardarArchivos {
 			String linea = br.readLine();
 			while (linea != null) {
 				String[] datosPromos = linea.split(" ");
-				if(datosPromos[0] == "PromoAventura") {
-				String nombre = datosPromos[0];
-				TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[4]);
-				String[] atraccionesString = datosPromos[1].split(",");
-				Atraccion[] atracciones = new Atraccion[atraccionesString.length];
-				for (int i = 0; i < atraccionesString.length; i++) {
-					atracciones[i] = parque.obtenerAtraccionPorNombre(atraccionesString[i]);
-				}
-
-				promos[contador++] = new PromocionAbsoluta(nombre, tipoDePromocion, atracciones);
-				}
-				if(datosPromos[0] == "PromoDePaseo") {
+				if (datosPromos[0] == "PromoAventura") {
 					String nombre = datosPromos[0];
-					TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[4]);
-					String[] atraccionesString = datosPromos[1].split(",");
+					TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[1]);
+					String[] atraccionesString = datosPromos[2].split(",");
 					Atraccion[] atracciones = new Atraccion[atraccionesString.length];
 					for (int i = 0; i < atraccionesString.length; i++) {
 						atracciones[i] = parque.obtenerAtraccionPorNombre(atraccionesString[i]);
 					}
-
+					promos[contador++] = new PromocionAbsoluta(nombre, tipoDePromocion, atracciones);
+				}
+				if (datosPromos[0] == "PromoDePaseo") {
+					String nombre = datosPromos[0];
+					TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[1]);
+					String[] atraccionesString = datosPromos[2].split(",");
+					Atraccion[] atracciones = new Atraccion[atraccionesString.length];
+					for (int i = 0; i < atraccionesString.length; i++) {
+						atracciones[i] = parque.obtenerAtraccionPorNombre(atraccionesString[i]);
+					}
 					promos[contador++] = new PromocionTresPorDos(nombre, tipoDePromocion, atracciones);
 				}
-				if(datosPromos[0] == "PromoGastronomica") {
+				if (datosPromos[0] == "PromoGastronomica") {
 					String nombre = datosPromos[0];
-					TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[4]);
-					String[] atraccionesString = datosPromos[1].split(",");
+					TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[1]);
+					String[] atraccionesString = datosPromos[2].split(",");
 					Atraccion[] atracciones = new Atraccion[atraccionesString.length];
 					for (int i = 0; i < atraccionesString.length; i++) {
 						atracciones[i] = parque.obtenerAtraccionPorNombre(atraccionesString[i]);
 					}
 					promos[contador++] = new PromocionPorcentual(nombre, tipoDePromocion, atracciones);
 				}
+
 				linea = br.readLine();
+				System.out.println(promos);
 			}
 			return promos;
 

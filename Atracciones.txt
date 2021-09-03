@@ -1,3 +1,4 @@
+10
 KrustyBurguer 2 4 5 GASTRONOMIA
 TabernaDeMoe 4 6 4 GASTRONOMIA
 Kwik-E-Mart 1 2 5 GASTRONOMIA

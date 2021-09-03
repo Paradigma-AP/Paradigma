@@ -2,7 +2,7 @@ package paradigma;
 
 import java.util.Arrays;
 
-public abstract class Promocion {
+public class Promocion {
 
 	private String nombre;
 	private TipoDeAtraccion tipoDePromocion;
@@ -16,19 +16,19 @@ public abstract class Promocion {
 	public int getDuracionDePromocionEnHoras() {
 		int i = 0;
 		int duracion = 0;
-		while (i <= atracciones.length) {
+		while (i < atracciones.length) {
 		}
 		return duracion += atracciones[i].getDuracionEnHoras();
 	}
-	
-	public abstract double getPrecioPromocion();
 
 	@Override
 	public String toString() {
-		return "Promocion [Nombre= " + nombre + ", Atracciones= "
-				+ Arrays.toString(atracciones) + ", Duracion de promocion en horas= " + getDuracionDePromocionEnHoras()
-				+ ", Precio de la promocion= " + getPrecioPromocion() + "]";
+		return "Promocion [nombre=" + nombre + ", tipoDePromocion=" + tipoDePromocion + ", atracciones="
+				+ Arrays.toString(atracciones) + "]";
 	}
+	
+	//public abstract double getPrecioPromocion();
+
 
 	
 

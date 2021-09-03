@@ -15,7 +15,7 @@ public class Usuario {
 
 	public boolean puedeComprarAtraccion(Atraccion [] atraccion) { 
 		int i = 0;
-		while(i <= atraccion.length) {
+		while(i < atraccion.length) {
 			boolean disponeDePresupuesto = this.presupuesto >= atraccion[i].getPrecio();
 			boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= atraccion[i].getDuracionEnHoras();
 			return disponeDePresupuesto && disponeDeTiempo;
@@ -25,7 +25,7 @@ public class Usuario {
 
 	public boolean puedeComprarPromocion(Promocion [] promocion) { 
 		int i = 0;
-		while(i <= promocion.length) {
+		while(i < promocion.length) {
 			boolean disponeDePresupuesto = this.presupuesto >= promocion[i].getPrecioPromocion();
 			boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= promocion[i].getDuracionDePromocionEnHoras();
 			return disponeDePresupuesto && disponeDeTiempo;

@@ -1,5 +1,7 @@
 package paradigma;
 
+import java.util.Arrays;
+
 public class ParqueAvSiempreViva {
 	public Atraccion [] atracciones;
 	public Promocion [] promociones;
@@ -14,6 +16,18 @@ public class ParqueAvSiempreViva {
 	 ordenar atraccioes y promociones, segun pref de usuario
 	 */
 
+	public void agregarTodasLasAtracciones(Atraccion [] atracciones) {
+		this.atracciones = atracciones;
+	}
+
+	public void agregarTodasLasPromociones(Promocion[] promociones) {
+		this.promociones = promociones;
+	}
+	
+	public void agregarTodosLosUsuarios(Usuario[] usuarios) {
+		this.usuarios = usuarios;
+	}
+	
 	public Atraccion obtenerAtraccionPorNombre(String nombre) {
 		for (Atraccion atraccion : atracciones) {
 			if(atraccion.getNombre().equals(nombre)) {
@@ -21,6 +35,12 @@ public class ParqueAvSiempreViva {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public String toString() {
+		return "ParqueAvSiempreViva [atracciones=" + Arrays.toString(atracciones) + ", promociones="
+				+ Arrays.toString(promociones) + ", usuarios=" + Arrays.toString(usuarios) + "]";
 	}
 	
 	
