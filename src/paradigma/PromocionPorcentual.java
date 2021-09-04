@@ -1,20 +1,12 @@
 package paradigma;
 
-import java.util.Arrays;
-
 public class PromocionPorcentual extends Promocion {
-	@Override
-	public String toString() {
-		return "PromocionPorcentual [atracciones=" + Arrays.toString(atracciones) + "]";
-	}
 
 	private Atraccion [] atracciones;
 	private static final double DESCUENTO = 0.2;
 	
-	public PromocionPorcentual(String nombre, TipoDeAtraccion tipoDePromocion, 
-			Atraccion [] atraccion) {
-		super(nombre, tipoDePromocion);
-		this.atracciones = atraccion;
+	public PromocionPorcentual(String nombre, TipoDeAtraccion tipoDePromocion, Atraccion[] atracciones) {
+		super(nombre, tipoDePromocion, atracciones);
 	}
 	
 	//ver metodo 

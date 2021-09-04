@@ -102,7 +102,7 @@ public class LeerYguardarArchivos {
 		FileReader fr = null;
 		BufferedReader br = null;
 
-		Promocion[] promos = null;
+		Promocion[] promociones = null;
 
 		try {
 			archivo = new File("Promociones.txt");
@@ -110,47 +110,32 @@ public class LeerYguardarArchivos {
 			br = new BufferedReader(fr);
 
 			int cantidad = Integer.parseInt(br.readLine());
-			promos = new Promocion[cantidad];
+			promociones = new Promocion[cantidad];
 			int contador = 0;
 
 			String linea = br.readLine();
 			while (linea != null) {
 				String[] datosPromos = linea.split(" ");
-				if (datosPromos[0] == "PromoAventura") {
-					String nombre = datosPromos[0];
-					TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[1]);
-					String[] atraccionesString = datosPromos[2].split(",");
-					Atraccion[] atracciones = new Atraccion[atraccionesString.length];
-					for (int i = 0; i < atraccionesString.length; i++) {
-						atracciones[i] = parque.obtenerAtraccionPorNombre(atraccionesString[i]);
-					}
-					promos[contador++] = new PromocionAbsoluta(nombre, tipoDePromocion, atracciones);
+				String nombre = datosPromos[0];
+				TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[1]);
+				String[] atraccionesString = datosPromos[2].split(",");
+				Atraccion[] atracciones = new Atraccion[atraccionesString.length];
+				for (int i = 0; i < atraccionesString.length; i++) {
+					atracciones[i] = parque.obtenerAtraccionPorNombre(atraccionesString[i]);
 				}
-				if (datosPromos[0] == "PromoDePaseo") {
-					String nombre = datosPromos[0];
-					TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[1]);
-					String[] atraccionesString = datosPromos[2].split(",");
-					Atraccion[] atracciones = new Atraccion[atraccionesString.length];
-					for (int i = 0; i < atraccionesString.length; i++) {
-						atracciones[i] = parque.obtenerAtraccionPorNombre(atraccionesString[i]);
-					}
-					promos[contador++] = new PromocionTresPorDos(nombre, tipoDePromocion, atracciones);
+				if (nombre == "PromoAventura") {
+					promociones[contador++] = new PromocionAbsoluta(nombre, tipoDePromocion, atracciones);
 				}
-				if (datosPromos[0] == "PromoGastronomica") {
-					String nombre = datosPromos[0];
-					TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[1]);
-					String[] atraccionesString = datosPromos[2].split(",");
-					Atraccion[] atracciones = new Atraccion[atraccionesString.length];
-					for (int i = 0; i < atraccionesString.length; i++) {
-						atracciones[i] = parque.obtenerAtraccionPorNombre(atraccionesString[i]);
-					}
-					promos[contador++] = new PromocionPorcentual(nombre, tipoDePromocion, atracciones);
+				else if (datosPromos[0] == "PromoDePaseo") {
+					promociones[contador++] = new PromocionTresPorDos(nombre, tipoDePromocion, atracciones);
 				}
-
+				else if (datosPromos[0] == "PromoGastronomica") {
+					promociones[contador++] = new PromocionPorcentual(nombre, tipoDePromocion, atracciones);
+				}
+			
 				linea = br.readLine();
-				System.out.println(promos);
 			}
-			return promos;
+			return promociones;
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -163,7 +148,7 @@ public class LeerYguardarArchivos {
 				e2.printStackTrace();
 			}
 		}
-		return promos;
+		return promociones;
 	}
 
 }

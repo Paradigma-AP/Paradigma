@@ -39,8 +39,8 @@ public class ParqueAvSiempreViva {
 
 	@Override
 	public String toString() {
-		return "ParqueAvSiempreViva [atracciones=" + Arrays.toString(atracciones) + ", promociones="
-				+ Arrays.toString(promociones) + ", usuarios=" + Arrays.toString(usuarios) + "]";
+		return "ParqueAvSiempreViva [atracciones=\n" + Arrays.toString(atracciones) + ", promociones=\n"
+				+ Arrays.toString(promociones) + ", usuarios=\n" + Arrays.toString(usuarios) + "]";
 	}
 	
 	

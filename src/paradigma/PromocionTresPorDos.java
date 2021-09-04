@@ -1,13 +1,12 @@
 package paradigma;
 
-import java.util.Arrays;
-
 public class PromocionTresPorDos extends Promocion {
+	
 	private Atraccion[] atracciones;
 
+	
 	public PromocionTresPorDos(String nombre, TipoDeAtraccion tipoDePromocion, Atraccion[] atracciones) {
-		super(nombre, tipoDePromocion);
-		this.atracciones = atracciones;
+		super(nombre, tipoDePromocion, atracciones);
 	}
 
 	//VER METODO 
@@ -19,9 +18,4 @@ public class PromocionTresPorDos extends Promocion {
 		return precio += atracciones[i].getDuracionEnHoras();
 	}
 
-	@Override
-	public String toString() {
-		return "PromocionTresPorDos [atracciones=" + Arrays.toString(atracciones) + "]";
-	}
-	
 }

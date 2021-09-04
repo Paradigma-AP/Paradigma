@@ -1,4 +1,4 @@
 3
-PromoAventura AVENTURA LaTierraDeTomyYdaly,LaFabricaDeCajas	
+PromoAventura AVENTURA LaTierraDeTomyYdaly,LaFabricaDeCajas
 PromoDePaseo VISITA_GUIADA PenitenciariaDeSpringfield,MonteSpringfield,MuseoJeremiasSpringfield
-PromoGastronomica GASTRONOMIA Kwik-E-Mart,TabernaDeMoe	
+PromoGastronomica GASTRONOMIA Kwik-E-Mart,TabernaDeMoe

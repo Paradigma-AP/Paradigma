@@ -2,15 +2,18 @@ package paradigma;
 
 import java.util.Arrays;
 
-public class Promocion {
+public abstract class Promocion {
 
 	private String nombre;
 	private TipoDeAtraccion tipoDePromocion;
 	private Atraccion[] atracciones;
 
-	public Promocion(String nombre, TipoDeAtraccion tipoDePromocion) {
+
+	public Promocion(String nombre, TipoDeAtraccion tipoDePromocion, Atraccion[] atracciones) {
+		super();
 		this.nombre = nombre;
 		this.tipoDePromocion = tipoDePromocion;
+		this.atracciones = atracciones;
 	}
 
 	public int getDuracionDePromocionEnHoras() {
@@ -27,9 +30,6 @@ public class Promocion {
 				+ Arrays.toString(atracciones) + "]";
 	}
 	
-	//public abstract double getPrecioPromocion();
-
-
-	
+	public abstract double getPrecioPromocion();
 
 }
