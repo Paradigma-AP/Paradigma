@@ -123,16 +123,17 @@ public class LeerYguardarArchivos {
 				for (int i = 0; i < atraccionesString.length; i++) {
 					atracciones[i] = parque.obtenerAtraccionPorNombre(atraccionesString[i]);
 				}
-				if (nombre == "PromoAventura") {
+				if (datosPromos[0].equals("PromoAventura")) {
 					promociones[contador++] = new PromocionAbsoluta(nombre, tipoDePromocion, atracciones);
-				}
-				else if (datosPromos[0] == "PromoDePaseo") {
+				 }
+				else if (datosPromos[0].equals("PromoDePaseo")) {
 					promociones[contador++] = new PromocionTresPorDos(nombre, tipoDePromocion, atracciones);
 				}
-				else if (datosPromos[0] == "PromoGastronomica") {
+				else if (datosPromos[0].equals("PromoGastronomica")) {
 					promociones[contador++] = new PromocionPorcentual(nombre, tipoDePromocion, atracciones);
 				}
 			
+		
 				linea = br.readLine();
 			}
 			return promociones;
