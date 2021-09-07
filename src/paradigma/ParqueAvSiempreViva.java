@@ -3,9 +3,11 @@ package paradigma;
 import java.util.Arrays;
 
 public class ParqueAvSiempreViva {
-	public Atraccion [] atracciones;
-	public Promocion [] promociones;
-	public Usuario [] usuarios;
+	private Atraccion [] atracciones;
+	private Promocion [] promociones;
+	private Usuario [] usuarios;
+	private Sugerencia [] sugerencias;
+
 
 	/*
 	 CREAR ARCHIVO
@@ -15,6 +17,19 @@ public class ParqueAvSiempreViva {
 	 METODO Vender 
 	 ordenar atraccioes y promociones, segun pref de usuario
 	 */
+	
+	public Sugerencia[] getSugerencias(Atraccion [] atracciones, Promocion [] promociones) {
+		Sugerencia [] sugerencias = new Sugerencia[atracciones.length + promociones.length];
+		for(int i = 0; i < atracciones.length; i++) {
+			sugerencias [i] = atracciones[i];
+		}
+		int contador = 0;
+		for(int i = atracciones.length; i < atracciones.length + promociones.length; i++) {
+			sugerencias[i] = promociones[contador++];
+		}
+		System.out.println(sugerencias);
+		return sugerencias;
+	}
 
 	public void agregarTodasLasAtracciones(Atraccion [] atracciones) {
 		this.atracciones = atracciones;
@@ -39,10 +54,7 @@ public class ParqueAvSiempreViva {
 
 	@Override
 	public String toString() {
-		return "ParqueAvSiempreViva [atracciones=\n" + Arrays.toString(atracciones) + ", promociones=\n"
-				+ Arrays.toString(promociones) + ", usuarios=\n" + Arrays.toString(usuarios) + "]";
+		return "ParqueAvSiempreViva [atracciones=" + Arrays.toString(atracciones) + ", promociones="
+				+ Arrays.toString(promociones) + ", usuarios=" + Arrays.toString(usuarios) + ", sugerencias=" + Arrays.toString(sugerencias) +"]";
 	}
-	
-	
-	
 }

@@ -13,25 +13,25 @@ public class Usuario {
 		this.atraccionPreferida = atraccionPreferida;
 	}
 
-	public boolean puedeComprarAtraccion(Atraccion [] atraccion) { 
+	public boolean puedeComprarAtraccion(Sugerencia [] sugerencia) { 
 		int i = 0;
-		while(i < atraccion.length) {
-			boolean disponeDePresupuesto = this.presupuesto >= atraccion[i].getPrecio();
-			boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= atraccion[i].getDuracionEnHoras();
+		while(i < sugerencia.length) {
+			boolean disponeDePresupuesto = this.presupuesto >= sugerencia[i].getPrecio();
+			boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= sugerencia[i].getDuracionEnHoras();
 			return disponeDePresupuesto && disponeDeTiempo;
 		}
 		return false;
 	}
 
-	public boolean puedeComprarPromocion(Promocion [] promocion) { 
+/*	public boolean puedeComprarPromocion(Promocion [] promocion) { 
 		int i = 0;
 		while(i < promocion.length) {
-			boolean disponeDePresupuesto = this.presupuesto >= promocion[i].getPrecioPromocion();
-			boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= promocion[i].getDuracionDePromocionEnHoras();
+			boolean disponeDePresupuesto = this.presupuesto >= promocion[i].getPrecio();
+			boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= promocion[i].getDuracionEnHoras();
 			return disponeDePresupuesto && disponeDeTiempo;
 		}
 		return false;
-	}
+	}*/
 
 	public synchronized void restarPresupuestoYtiempo(int precio, int horas) {
 		this.presupuesto -= precio;

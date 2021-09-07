@@ -1,11 +1,12 @@
 package paradigma;
 
-public class Atraccion {
+public class Atraccion extends Sugerencia {
 	private String nombre;
 	private int duracionEnHoras;
-	private int precio;
+	private double precio;
 	private int cupoDisponible;
 	private TipoDeAtraccion tipoDeAtraccion;
+	private boolean esPromocion = false;
 	
 	public Atraccion(String nombre, int duracionEnHoras, int precio, 
 			int cupo, TipoDeAtraccion tipoDeAtraccion) {
@@ -24,7 +25,7 @@ public class Atraccion {
 		return duracionEnHoras;
 	}
 
-	public int getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
@@ -48,6 +49,10 @@ public class Atraccion {
 	public String toString() {
 		return "Atraccion [nombre=" + nombre + ", duracionEnHoras=" + duracionEnHoras + ", precio=" + precio
 				+ ", cupoDisponible=" + cupoDisponible + ", tipoDeAtraccion=" + tipoDeAtraccion + "]";
+	}
+
+	public boolean esPromocion() {
+		return esPromocion;
 	}
 
 

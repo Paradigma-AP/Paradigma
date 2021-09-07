@@ -2,12 +2,14 @@ package paradigma;
 
 import java.util.Arrays;
 
-public abstract class Promocion {
+public abstract class Promocion extends Sugerencia {
 
 	private String nombre;
 	private TipoDeAtraccion tipoDePromocion;
-	private Atraccion[] atracciones;
+	
 
+	private Atraccion[] atracciones;
+	private boolean esPromocion = true;
 
 	public Promocion(String nombre, TipoDeAtraccion tipoDePromocion, Atraccion[] atracciones) {
 		super();
@@ -15,13 +17,21 @@ public abstract class Promocion {
 		this.tipoDePromocion = tipoDePromocion;
 		this.atracciones = atracciones;
 	}
+	
+	public String getNombre() {
+		return nombre;
+	}
 
-	public int getDuracionDePromocionEnHoras() {
+	public int getDuracionEnHoras() {
 		int i = 0;
 		int duracion = 0;
 		while (i < atracciones.length) {
 		}
 		return duracion += atracciones[i].getDuracionEnHoras();
+	}
+
+	public TipoDeAtraccion getTipoDeAtraccion() {
+		return this.tipoDePromocion;
 	}
 
 	@Override
@@ -30,6 +40,10 @@ public abstract class Promocion {
 				+ Arrays.toString(atracciones) + "]";
 	}
 	
-	public abstract double getPrecioPromocion();
+	public abstract double getPrecio();
+
+	public boolean esPromocion() {
+		return esPromocion;
+	}
 
 }

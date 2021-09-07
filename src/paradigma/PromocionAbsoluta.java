@@ -1,7 +1,5 @@
 package paradigma;
 
-
-
 public class PromocionAbsoluta extends Promocion {
 
 	private Atraccion[] atracciones;
@@ -12,7 +10,7 @@ public class PromocionAbsoluta extends Promocion {
 	}
 
 	//ver metodo
-	public double getPrecioPromocion() {
+	public double getPrecio() {
 		int i = 0;
 		int precio = 0;
 		while (i < atracciones.length) {
@@ -20,5 +18,9 @@ public class PromocionAbsoluta extends Promocion {
 			}
 		return precio - DESCUENTO;
 	}
+
+
+
+
 
 }

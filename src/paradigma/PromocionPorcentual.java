@@ -10,7 +10,7 @@ public class PromocionPorcentual extends Promocion {
 	}
 	
 	//ver metodo 
-	public double getPrecioPromocion() {
+	public double getPrecio() {
 		int i = 0;
 		int precio = 0;
 		while (i < atracciones.length) {
