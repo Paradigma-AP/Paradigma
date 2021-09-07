@@ -9,18 +9,14 @@ public class PromocionAbsoluta extends Promocion {
 		super(nombre, tipoDePromocion, atracciones);
 	}
 
-	//ver metodo
+	@Override
 	public double getPrecio() {
 		int i = 0;
 		int precio = 0;
 		while (i < atracciones.length) {
-		precio += atracciones[i].getPrecio();
-			}
+			precio += atracciones[i].getPrecio();
+		}
 		return precio - DESCUENTO;
 	}
-
-
-
-
 
 }

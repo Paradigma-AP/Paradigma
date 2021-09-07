@@ -28,7 +28,7 @@ public class LeerYguardarArchivos {
 				String nombre = datosUsuarios[0];
 				int tiempoDisponibleEnHoras = Integer.parseInt(datosUsuarios[1]);
 				int presupuesto = Integer.parseInt(datosUsuarios[2]);
-				TipoDeAtraccion tipoDeAtraccionPreferida = paradigma.TipoDeAtraccion.valueOf(datosUsuarios[3]);
+				TipoDeAtraccion tipoDeAtraccionPreferida = paradigma.TipoDeAtraccion.valueOf(datosUsuarios[3].toUpperCase());
 
 				usuario[contador++] = new Usuario(nombre, tiempoDisponibleEnHoras, presupuesto,
 						tipoDeAtraccionPreferida);
@@ -74,7 +74,7 @@ public class LeerYguardarArchivos {
 				int duracionEnHoras = Integer.parseInt(datosAtracciones[1]);
 				int precio = Integer.parseInt(datosAtracciones[2]);
 				int cupoDisponible = Integer.parseInt(datosAtracciones[3]);
-				TipoDeAtraccion tipoDeAtraccion = paradigma.TipoDeAtraccion.valueOf(datosAtracciones[4]);
+				TipoDeAtraccion tipoDeAtraccion = paradigma.TipoDeAtraccion.valueOf(datosAtracciones[4].toUpperCase());
 
 				atraccion[contador++] = new Atraccion(nombre, duracionEnHoras, precio, cupoDisponible, tipoDeAtraccion);
 				linea = br.readLine();
@@ -117,7 +117,7 @@ public class LeerYguardarArchivos {
 			while (linea != null) {
 				String[] datosPromos = linea.split(" ");
 				String nombre = datosPromos[0];
-				TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[1]);
+				TipoDeAtraccion tipoDePromocion = paradigma.TipoDeAtraccion.valueOf(datosPromos[1].toUpperCase());
 				String[] atraccionesString = datosPromos[2].split(",");
 				Atraccion[] atracciones = new Atraccion[atraccionesString.length];
 				for (int i = 0; i < atraccionesString.length; i++) {

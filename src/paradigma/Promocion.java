@@ -6,8 +6,6 @@ public abstract class Promocion extends Sugerencia {
 
 	private String nombre;
 	private TipoDeAtraccion tipoDePromocion;
-	
-
 	private Atraccion[] atracciones;
 	private boolean esPromocion = true;
 
@@ -17,7 +15,7 @@ public abstract class Promocion extends Sugerencia {
 		this.tipoDePromocion = tipoDePromocion;
 		this.atracciones = atracciones;
 	}
-	
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -26,24 +24,40 @@ public abstract class Promocion extends Sugerencia {
 		int i = 0;
 		int duracion = 0;
 		while (i < atracciones.length) {
+		duracion += atracciones[i].getDuracionEnHoras();
 		}
-		return duracion += atracciones[i].getDuracionEnHoras();
+		return duracion;
+	}
+	
+	public void restarCupo() {
+		int i = 0;
+		while (i < atracciones.length) {
+		atracciones[i].restarCupo();;
+		}
+	}
+	
+	public boolean estaLleno() {
+		int i = 0;
+		while (i < atracciones.length) {
+		atracciones[i].estaLleno();
+		}
+		return true;
 	}
 
 	public TipoDeAtraccion getTipoDeAtraccion() {
 		return this.tipoDePromocion;
 	}
 
-	@Override
-	public String toString() {
-		return "Promocion [nombre=" + nombre + ", tipoDePromocion=" + tipoDePromocion + ", atracciones="
-				+ Arrays.toString(atracciones) + "]";
-	}
-	
 	public abstract double getPrecio();
 
 	public boolean esPromocion() {
 		return esPromocion;
+	}
+
+	@Override
+	public String toString() {
+		return "Promocion [nombre=" + nombre + ", tipoDePromocion=" + tipoDePromocion + ", atracciones="
+				+ Arrays.toString(atracciones) + "]\n";
 	}
 
 }
