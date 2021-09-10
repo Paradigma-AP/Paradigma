@@ -12,8 +12,8 @@ public class PromocionTresPorDos extends Promocion {
 	public double getPrecio() {
 		int i = 0;
 		int precio = 0;
-		while (i < atracciones.length) {
-			precio += atracciones[i].getDuracionEnHoras();
+		while (i < atracciones.length-1) {
+			precio += atracciones[i].getPrecio();
 		}
 		return precio;
 	}

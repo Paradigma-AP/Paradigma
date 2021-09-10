@@ -3,7 +3,7 @@ package paradigma;
 public class Atraccion extends Sugerencia {
 	private String nombre;
 	private int duracionEnHoras;
-	private double precio;
+	private int precio;
 	private int cupoDisponible;
 	private TipoDeAtraccion tipoDeAtraccion;
 	private boolean esPromocion = false;
@@ -46,12 +46,14 @@ public class Atraccion extends Sugerencia {
 
 	@Override
 	public String toString() {
-		return "Atraccion [nombre=" + nombre + ", duracionEnHoras=" + duracionEnHoras + ", precio=" + precio
-				+ ", cupoDisponible=" + cupoDisponible + ", tipoDeAtraccion=" + tipoDeAtraccion + "]\n";
+		return "Atraccion: Nombre= " + nombre + ", Duración= " + duracionEnHoras + ", Precio= " + precio
+				+ ", Tipo De Atraccion= " + tipoDeAtraccion + ".\n";
 	}
 
 	public boolean esPromocion() {
 		return esPromocion;
 	}
+	
+	
 
 }

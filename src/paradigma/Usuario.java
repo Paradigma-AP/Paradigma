@@ -8,8 +8,7 @@ public class Usuario {
 	private int tiempoDisponibleEnHoras;
 	private int presupuesto;
 	private TipoDeAtraccion atraccionPreferida;
-	private ArrayList<String> itinerario;
-	
+	private ArrayList<Sugerencia> itinerario;
 
 	public Usuario(String nombre, int tiempoDisponibleEnHoras, int presupuesto, TipoDeAtraccion atraccionPreferida) {
 		this.nombre = nombre;
@@ -19,44 +18,48 @@ public class Usuario {
 	}
 
 	public boolean puedeComprarSugerencia(Sugerencia sugerencia) {
-			boolean disponeDePresupuesto = this.presupuesto >= sugerencia.getPrecio();
-			boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= sugerencia.getDuracionEnHoras();
-			return disponeDePresupuesto && disponeDeTiempo;
+		boolean disponeDePresupuesto = this.presupuesto >= sugerencia.getPrecio();
+		boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= sugerencia.getDuracionEnHoras();
+		return disponeDePresupuesto && disponeDeTiempo;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public int getTiempoDisponibleEnHoras() {
+		return tiempoDisponibleEnHoras;
+	}
+
+	public int getPresupuesto() {
+		return presupuesto;
 	}
 
 	public TipoDeAtraccion getAtraccionPreferida() {
 		return atraccionPreferida;
 	}
 
-	public synchronized void restarPresupuestoYtiempo(int precio, int horas) {
+	public synchronized void restarPresupuestoYtiempo(double precio, int horas) {
 		this.presupuesto -= precio;
 		this.tiempoDisponibleEnHoras -= horas;
 	}
-/*
-	public void getItinerario() {
-		this.itinerario = ParqueAvSiempreViva.sugerirActividades();
+
+	public ArrayList<Sugerencia> getItinerario() {
+		return itinerario;
 	}
-*/
-	//VER METODO
-		public void comprarSugerencias(String sugerencia) {
-			char respuesta;
-			Scanner sc = new Scanner(System.in);
-			System.out.println("¿Acepta S/N?");
-			respuesta = sc.nextLine().charAt(0);
-			sc.close();
-			if(respuesta == 'S') {
+
+	public void comprarSugerencias(Sugerencia sugerencia) {
+		char respuesta;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("¿Acepta S/N?");
+		respuesta = sc.nextLine().charAt(0);
+		sc.close();
+		if (respuesta == 'S') {
 			this.itinerario.add(sugerencia);
-			}
-		}
-	/*
-	public crearArchivo(){
-		recorre for de usuario 
-		cree archi = ("/archivo"+ usuario[i].getNombre + ".txt")
-		parque.sugerirActividades(usuario[i])
-		cierre archi
 		}
 	}
-	*/
+	
+	
 
 	@Override
 	public String toString() {

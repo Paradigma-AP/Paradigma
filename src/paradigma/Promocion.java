@@ -18,6 +18,10 @@ public abstract class Promocion extends Sugerencia {
 
 	public String getNombre() {
 		return nombre;
+	}	
+
+	public Atraccion[] getAtracciones() {
+		return atracciones;
 	}
 
 	public int getDuracionEnHoras() {
@@ -54,10 +58,11 @@ public abstract class Promocion extends Sugerencia {
 		return esPromocion;
 	}
 
+	//AGREGAR ACA LOS DATOS DE ATRACCIONES PARA QUE ME LO GUARDE EN EL ARCHIVO. 
 	@Override
 	public String toString() {
-		return "Promocion [nombre=" + nombre + ", tipoDePromocion=" + tipoDePromocion + ", atracciones="
-				+ Arrays.toString(atracciones) + "]\n";
+		return "Promocion: Nombre= " + nombre + ", TipoDePromocion= " + tipoDePromocion + "\n Atracciones= "
+				+ Arrays.toString(atracciones) + "\n";
 	}
 
 }

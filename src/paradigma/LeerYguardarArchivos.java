@@ -124,7 +124,6 @@ public class LeerYguardarArchivos {
 				for (int i = 0; i < atraccionesString.length; i++) {
 					for (Atraccion atraccion : getAtraccionesDesdeArchivos()) {
 						if (atraccion.getNombre().equals(atraccionesString[i])) {
-							System.out.println(atraccion);
 							atracciones[i] = atraccion;
 						}
 					}
