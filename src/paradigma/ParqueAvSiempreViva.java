@@ -1,6 +1,8 @@
 package paradigma;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ParqueAvSiempreViva {
 	private Atraccion[] atracciones;
@@ -13,32 +15,29 @@ public class ParqueAvSiempreViva {
 	 * usuario generar itinerarios METODO Vender ordenar atraccioes y promociones,
 	 * segun pref de usuario
 	 */
-
-	/*
-	 * Creo metodo itinerario que sea una Arraylist de objetos donde se vayan
-	 * guardadno las sugerencias.-
-	 * 
-	 * 
-	 */
-
-	public void sugerirActividades() {
-
-		for (int i = 0; i < usuarios.length; i++) {
-//ArrayList new..llame itinerario..
-			System.out.print(usuarios);
-//itinerario.add(usuario)
-			for (int j = 0; j < sugerencias.length; j++) {
-				Arrays.sort(sugerencias, new OrdenarParaSugerir(usuarios[i].getAtraccionPreferida()));
-				while (usuarios[i].puedeComprarSugerencia(sugerencias[j])
-						&& !sugerencias[j].estaLleno() /* itinerario no contiene sugerencia si es promo que no muestre dsp atracciones */) {
-					System.out.println(sugerencias[j]);
+	
+	public void ordenarPorPreferencia(Sugerencia [] sugerencias, TipoDeAtraccion tipo) {
+		Arrays.sort(sugerencias, new OrdenarParaSugerir(tipo));
+	}
+	
+	
+	
+	
+	public void sugerirActividades(Usuario usuarios) {
+		//ArrayList<String> itinerario = new ArrayList<String>();
+			for (Sugerencia sugerencia : sugerencias) {
+				ordenarPorPreferencia(sugerencias, usuarios.getAtraccionPreferida());
+				while (usuarios.puedeComprarSugerencia(sugerencia)
+						&& !sugerencia.estaLleno() /* itinerario no contiene sugerencia si es promo que no muestre dsp atracciones */) {
+					
+					System.out.println(sugerencia);
+					//itinerario.add(sugerencias);
 					/*
 					 * leer por consola si reponde s itinerario.add(sugerencia)
 					 * sugerencia.restarCupo && usuario.restarPresupuestoYtiempo(sugerencia.getPrecio()
 					 * , getsugerencia.getDuracionEnHoras()) si reponde n continuar, si reponde mal
 					 * error. imprimirArrayList
 					 */
-				}
 			}
 		}
 	}
@@ -55,25 +54,16 @@ public class ParqueAvSiempreViva {
 		return sugerencias;
 	}
 
-	public void agregarTodasLasAtracciones(Atraccion[] atracciones) {
-		this.atracciones = atracciones;
+	public void agregarTodasLasAtracciones() {
+		this.atracciones = LeerYguardarArchivos.getAtraccionesDesdeArchivos();
 	}
 
-	public void agregarTodasLasPromociones(Promocion[] promociones) {
-		this.promociones = promociones;
+	public void agregarTodasLasPromociones() {
+		this.promociones = LeerYguardarArchivos.getPromocionesDesdeArchivo();
 	}
 
-	public void agregarTodosLosUsuarios(Usuario[] usuarios) {
-		this.usuarios = usuarios;
-	}
-
-	public Atraccion obtenerAtraccionPorNombre(String nombre) {
-		for (Atraccion atraccion : atracciones) {
-			if (atraccion.getNombre().equals(nombre)) {
-				return atraccion;
-			}
-		}
-		return null;
+	public void agregarTodosLosUsuarios() {
+		this.usuarios = LeerYguardarArchivos.getUsuariosDesdeArchivos();
 	}
 
 	@Override

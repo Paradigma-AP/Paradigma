@@ -5,13 +5,10 @@ public class ParqueAvSiempreVivaApp {
 	public static void main(String[] args) {
 		ParqueAvSiempreViva parque = new ParqueAvSiempreViva();
 
-		parque.agregarTodosLosUsuarios(LeerYguardarArchivos.getUsuariosDesdeArchivos());
-		parque.agregarTodasLasAtracciones(LeerYguardarArchivos.getAtraccionesDesdeArchivos());
-		parque.agregarTodasLasPromociones(LeerYguardarArchivos.getPromocionesDesdeArchivo(parque));
-		parque.getSugerencias(LeerYguardarArchivos.getAtraccionesDesdeArchivos(),
-				LeerYguardarArchivos.getPromocionesDesdeArchivo(parque));
+		parque.agregarTodosLosUsuarios();
+		parque.agregarTodasLasAtracciones();
+		parque.agregarTodasLasPromociones();
 
-		// Listo todas las "atracciones" y las promos con su contenido
 		System.out.println(parque.toString());
 
 	}

@@ -14,4 +14,10 @@ public abstract class Sugerencia {
 
 	protected abstract boolean estaLleno();
 
+	
+	
+	
+
+	
+
 }

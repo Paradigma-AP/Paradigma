@@ -28,7 +28,8 @@ public class LeerYguardarArchivos {
 				String nombre = datosUsuarios[0];
 				int tiempoDisponibleEnHoras = Integer.parseInt(datosUsuarios[1]);
 				int presupuesto = Integer.parseInt(datosUsuarios[2]);
-				TipoDeAtraccion tipoDeAtraccionPreferida = paradigma.TipoDeAtraccion.valueOf(datosUsuarios[3].toUpperCase());
+				TipoDeAtraccion tipoDeAtraccionPreferida = paradigma.TipoDeAtraccion
+						.valueOf(datosUsuarios[3].toUpperCase());
 
 				usuario[contador++] = new Usuario(nombre, tiempoDisponibleEnHoras, presupuesto,
 						tipoDeAtraccionPreferida);
@@ -97,7 +98,7 @@ public class LeerYguardarArchivos {
 		return atraccion;
 	}
 
-	public static Promocion[] getPromocionesDesdeArchivo(ParqueAvSiempreViva parque) {
+	public static Promocion[] getPromocionesDesdeArchivo() {
 		File archivo = null;
 		FileReader fr = null;
 		BufferedReader br = null;
@@ -121,19 +122,21 @@ public class LeerYguardarArchivos {
 				String[] atraccionesString = datosPromos[2].split(",");
 				Atraccion[] atracciones = new Atraccion[atraccionesString.length];
 				for (int i = 0; i < atraccionesString.length; i++) {
-					atracciones[i] = parque.obtenerAtraccionPorNombre(atraccionesString[i]);
+					for (Atraccion atraccion : getAtraccionesDesdeArchivos()) {
+						if (atraccion.getNombre().equals(atraccionesString[i])) {
+							System.out.println(atraccion);
+							atracciones[i] = atraccion;
+						}
+					}
 				}
 				if (datosPromos[0].equals("PromoAventura")) {
 					promociones[contador++] = new PromocionAbsoluta(nombre, tipoDePromocion, atracciones);
-				 }
-				else if (datosPromos[0].equals("PromoDePaseo")) {
+				} else if (datosPromos[0].equals("PromoDePaseo")) {
 					promociones[contador++] = new PromocionTresPorDos(nombre, tipoDePromocion, atracciones);
-				}
-				else if (datosPromos[0].equals("PromoGastronomica")) {
+				} else if (datosPromos[0].equals("PromoGastronomica")) {
 					promociones[contador++] = new PromocionPorcentual(nombre, tipoDePromocion, atracciones);
 				}
-			
-		
+
 				linea = br.readLine();
 			}
 			return promociones;
