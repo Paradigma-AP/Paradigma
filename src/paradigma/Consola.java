@@ -3,22 +3,45 @@ package paradigma;
 import java.util.Scanner;
 
 public class Consola {
-		
-	public void imprimirPorConsola(Usuario [] usuarios, Sugerencia[] sugerencias) {
-		for(Usuario usuario : usuarios) {
-		System.out.println("Hola "+usuario.getNombre());
-		ParqueAvSiempreViva.sugerirActividades(usuario, usuario.getItinerario(), sugerencias);
+	static Scanner teclado = new Scanner(System.in);
+
+	public static void bienvenidaAlParque() {
+		Usuario[] usuarios = ParqueAvSiempreViva.getUsuarios();
+		Sugerencia[] sugerencias = ParqueAvSiempreViva.getSugerencias();
+		//System.out.println(Arrays.toString(sugerencias));
+		for (Usuario usuario : usuarios) {
+			//ParqueAvSiempreViva.ordenarPorPreferencia(sugerencias, usuario.getAtraccionPreferida());
+			System.out.println("Hola " + usuario.getNombre()
+					+ " Bienvenide al Parque Av. Siempre Viva, donde nada puede MALIR SAL!");
+			for (Sugerencia sugerencia : sugerencias) {
+				//System.out.println(Arrays.toString(sugerencias));
+				//System.out.println(usuario.getItinerario());
+				if (usuario.puedeComprarSugerencia(sugerencia) && !sugerencia.estaLleno()
+						&& !usuario.getItinerario().contains("Nombre: " + sugerencia.getNombre() + ", Precio: "
+								+ sugerencia.getPrecio() + ", Duracion: " + sugerencia.getDuracionEnHoras())) {
+
+					System.out.println("Nombre: " + sugerencia.getNombre() + ", Precio: " + sugerencia.getPrecio()
+							+ ", Duracion: " + sugerencia.getDuracionEnHoras());
+
+					Consola.comprarSugerencia(usuario, sugerencia);
+				}
+			}
+				/*
+				 * if (sugerencia.esPromocion()) { // usuario.comprarSugerencias(guardar infor
+				 * de atracciones de las promos ); }
+				 */
 		}
+		teclado.close();
 	}
-	
-	public static void comprarSugerencia(Usuario usuario,Sugerencia sugerencia) {
-		Scanner sc = new Scanner(System.in);
+
+	public static void comprarSugerencia(Usuario usuario, Sugerencia sugerencia) {
 		System.out.println("¿Acepta esta Actividad Si o No?");
 		char respuesta;
-		respuesta = sc.nextLine().charAt(0);
+		respuesta = teclado.nextLine().charAt(0);
 		if (respuesta == 'S') {
 			usuario.agregarSugerenciaAlItinerario(sugerencia);
-			sc.close();
+			usuario.restarPresupuestoYtiempo(sugerencia.getPrecio(), sugerencia.getDuracionEnHoras());
+			sugerencia.restarCupo();
 		}
 	}
 }

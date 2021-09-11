@@ -7,7 +7,7 @@ public class Usuario {
 	private int tiempoDisponibleEnHoras;
 	private int presupuesto;
 	private TipoDeAtraccion atraccionPreferida;
-	private ArrayList<String> itinerario;
+	private ArrayList<String> itinerario = new ArrayList<String>();
 
 	public Usuario(String nombre, int tiempoDisponibleEnHoras, int presupuesto, TipoDeAtraccion atraccionPreferida) {
 		this.nombre = nombre;
@@ -48,8 +48,7 @@ public class Usuario {
 	}
 	
 	public void agregarSugerenciaAlItinerario(Sugerencia sugerencia) {
-		ArrayList<String> itinerario = new ArrayList<String>();
-			itinerario.add("Nombre: "+ sugerencia.getNombre()+", Precio: "+ sugerencia.getPrecio()+", Duracion: " + sugerencia.getDuracionEnHoras());
+			this.itinerario.add("Nombre: "+ sugerencia.getNombre()+", Precio: "+ sugerencia.getPrecio()+", Duracion: " + sugerencia.getDuracionEnHoras());
 		}
 	
 	
