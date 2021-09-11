@@ -34,7 +34,7 @@ public class LeerYguardarArchivos {
 				usuario[contador++] = new Usuario(nombre, tiempoDisponibleEnHoras, presupuesto,
 						tipoDeAtraccionPreferida);
 				linea = br.readLine();
-			}
+ 			}
 
 			return usuario;
 

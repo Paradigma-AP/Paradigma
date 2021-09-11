@@ -9,6 +9,7 @@ public abstract class Promocion extends Sugerencia {
 	protected Atraccion[] atracciones;
 	private boolean esPromocion = true;
 	
+	
 
 	public Promocion(String nombre, TipoDeAtraccion tipoDePromocion, Atraccion[] atracciones) {
 		super();
@@ -30,6 +31,7 @@ public abstract class Promocion extends Sugerencia {
 		int duracion = 0;
 		while (i < atracciones.length) {
 		duracion += atracciones[i].getDuracionEnHoras();
+		i++;
 		}
 		return duracion;
 	}
@@ -37,18 +39,29 @@ public abstract class Promocion extends Sugerencia {
 	public void restarCupo() {
 		int i = 0;
 		while (i < atracciones.length) {
-		atracciones[i].restarCupo();;
+		atracciones[i].restarCupo();
+		i++;
 		}
 	}
 	
-	public boolean estaLleno() {
+	public boolean tieneCupoDisponible() {
 		int i = 0;
 		while (i < atracciones.length) {
-		atracciones[i].estaLleno();
-		}
+		if (atracciones[i].tieneCupoDisponible()) {
+			i++;
+			}
 		return true;
+		}
+		return false;
 	}
-
+	
+	/*public boolean tieneCupoDisponible() {
+		for(Atraccion atr : atracciones) {
+			atr.tieneCupoDisponible();
+	}
+		return true;
+	}*/
+	
 	public TipoDeAtraccion getTipoDeAtraccion() {
 		return this.tipoDePromocion;
 	}

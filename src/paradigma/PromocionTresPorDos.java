@@ -10,8 +10,9 @@ public class PromocionTresPorDos extends Promocion {
 	public double getPrecio() {
 		int i = 0;
 		int precio = 0;
-		while (i < atracciones.length) {
+		while (i < atracciones.length-1) {
 			precio += atracciones[i].getPrecio();
+			i++;
 		}
 		return precio;
 	}

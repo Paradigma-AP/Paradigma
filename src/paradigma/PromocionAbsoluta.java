@@ -15,6 +15,7 @@ public class PromocionAbsoluta extends Promocion {
 		int precio = 0;
 		while (i < atracciones.length) {
 			precio += atracciones[i].getPrecio();
+			i++;
 		}
 		return precio - DESCUENTO;
 	}

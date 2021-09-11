@@ -12,9 +12,11 @@ public abstract class Sugerencia {
 
 	public abstract String getNombre();
 
-	public abstract boolean estaLleno();
+	public abstract boolean tieneCupoDisponible();
 	
 	public abstract void restarCupo();
+	
+	public abstract Atraccion [] getAtracciones();
 
 	
 

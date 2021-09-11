@@ -8,6 +8,9 @@ public class Usuario {
 	private int presupuesto;
 	private TipoDeAtraccion atraccionPreferida;
 	private ArrayList<String> itinerario = new ArrayList<String>();
+	private double costoTotalItinerario;
+	private int tiempoTotalItinerario;
+	
 
 	public Usuario(String nombre, int tiempoDisponibleEnHoras, int presupuesto, TipoDeAtraccion atraccionPreferida) {
 		this.nombre = nombre;
@@ -17,9 +20,7 @@ public class Usuario {
 	}
 
 	public boolean puedeComprarSugerencia(Sugerencia sugerencia) {
-		boolean disponeDePresupuesto = this.presupuesto >= sugerencia.getPrecio();
-		boolean disponeDeTiempo = this.tiempoDisponibleEnHoras >= sugerencia.getDuracionEnHoras();
-		return disponeDePresupuesto && disponeDeTiempo;
+		return this.presupuesto >= sugerencia.getPrecio() && this.tiempoDisponibleEnHoras >= sugerencia.getDuracionEnHoras();
 	}
 
 	public String getNombre() {
@@ -48,10 +49,25 @@ public class Usuario {
 	}
 	
 	public void agregarSugerenciaAlItinerario(Sugerencia sugerencia) {
-			this.itinerario.add("Nombre: "+ sugerencia.getNombre()+", Precio: "+ sugerencia.getPrecio()+", Duracion: " + sugerencia.getDuracionEnHoras());
+			this.itinerario.add(sugerencia.getNombre()+", Precio: "+ sugerencia.getPrecio() + " fichas de Tomy y Daly" + ", Duracion: " + sugerencia.getDuracionEnHoras() + " horas");
+			this.costoTotalItinerario += sugerencia.getPrecio();
+			this.tiempoTotalItinerario += sugerencia.getDuracionEnHoras();
+			this.itinerario.add("\n");
+			if(sugerencia.esPromocion()) {
+				for (Atraccion atraccionDePromocion : sugerencia.getAtracciones()) {
+					this.itinerario.add(atraccionDePromocion.getNombre()+", Precio: "+ atraccionDePromocion.getPrecio() + " fichas de Tomy y Daly" + ", Duracion: " + atraccionDePromocion.getDuracionEnHoras() + " horas");
+					this.itinerario.add("\n");
+				}
+			}
 		}
 	
-	
+	public double getCostoTotalItinerario() {
+		return costoTotalItinerario;
+	}
+
+	public int getTiempoTotalItinerario() {
+		return tiempoTotalItinerario;
+	}
 
 	@Override
 	public String toString() {
