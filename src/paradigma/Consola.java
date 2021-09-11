@@ -8,20 +8,20 @@ public class Consola {
 	public static void bienvenidaAlParque() {
 		Usuario[] usuarios = ParqueAvSiempreViva.getUsuarios();
 		Sugerencia[] sugerencias = ParqueAvSiempreViva.getSugerencias();
-		//System.out.println(Arrays.toString(sugerencias));
 		for (Usuario usuario : usuarios) {
 			//ParqueAvSiempreViva.ordenarPorPreferencia(sugerencias, usuario.getAtraccionPreferida());
 			System.out.println("Hola " + usuario.getNombre()
 					+ " Bienvenide al Parque Av. Siempre Viva, donde nada puede MALIR SAL!");
 			for (Sugerencia sugerencia : sugerencias) {
-				//System.out.println(Arrays.toString(sugerencias));
+				System.out.println(sugerencia);
+				System.out.println(sugerencia.getPrecio());
 				//System.out.println(usuario.getItinerario());
-				if (usuario.puedeComprarSugerencia(sugerencia) && !sugerencia.estaLleno()
-						&& !usuario.getItinerario().contains("Nombre: " + sugerencia.getNombre() + ", Precio: "
-								+ sugerencia.getPrecio() + ", Duracion: " + sugerencia.getDuracionEnHoras())) {
+				if (usuario.puedeComprarSugerencia(sugerencia) /*&& !sugerencia.estaLleno()
+						/*&& !usuario.getItinerario().contains("Nombre: " + sugerencia.getNombre() + ", Precio: "
+								+ sugerencia.getPrecio() + ", Duracion: " + sugerencia.getDuracionEnHoras())*/) {
+				System.out.println(sugerencia);
 
-					System.out.println("Nombre: " + sugerencia.getNombre() + ", Precio: " + sugerencia.getPrecio()
-							+ ", Duracion: " + sugerencia.getDuracionEnHoras());
+					//System.out.println("Nombre: " + sugerencia.getNombre() + ", Precio: " + sugerencia.getPrecio() + ", Duracion: " + sugerencia.getDuracionEnHoras());
 
 					Consola.comprarSugerencia(usuario, sugerencia);
 				}
