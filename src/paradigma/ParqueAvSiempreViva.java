@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ParqueAvSiempreViva {
-	private Atraccion[] atracciones = LeerYguardarArchivos.getAtraccionesDesdeArchivos();
+	private Atraccion[] atracciones;
 	private Promocion[] promociones;
 	private Usuario[] usuarios;
 	private static Sugerencia[] sugerencias;
@@ -14,34 +14,41 @@ public class ParqueAvSiempreViva {
 	 * usuario generar itinerarios METODO Vender ordenar atraccioes y promociones,
 	 * segun pref de usuario
 	 */
-	public ArrayList<Sugerencia> obtenerItinerarioPorConsola() {
+	/*
+	public ArrayList<String> obtenerItinerarioPorConsola() {
+		ArrayList<String> itinerario = null;
 		for(Usuario usuario : usuarios) {
-			obtenerItinerario(usuario);
+		 itinerario = obtenerItinerario(usuario);
 		}
-		return null;
+		return itinerario; 
 	}
 	
-	public static ArrayList<Sugerencia> obtenerItinerario(Usuario usuario){
+	public static ArrayList<String> obtenerItinerario(Usuario usuario){
 			sugerirActividades(usuario, usuario.getItinerario());
 			return usuario.getItinerario();
-	}
+	}*/
 
-	public static void sugerirActividades(Usuario usuario, ArrayList<Sugerencia> itinerario) {
-		for (Sugerencia sugerencia : sugerencias) {
-			ordenarPorPreferencia(sugerencias, usuario.getAtraccionPreferida());
-			while (usuario.puedeComprarSugerencia(sugerencia) && !sugerencia.estaLleno()
-					&& !itinerario.contains(sugerencia)) {
-				usuario.comprarSugerencias(sugerencia);
+	public static void sugerirActividades(Usuario usuario, ArrayList<String> itinerario, Sugerencia [] sugerencias) {
+			for (Sugerencia sugerencia : sugerencias) {
+				//ordenarPorPreferencia(sugerencias, usuario.getAtraccionPreferida());
+
+				//System.out.println(sugerencia.toString());
+				//Consola.comprarSugerencia(usuario, sugerencia);
+			while (usuario.puedeComprarSugerencia(sugerencia) && !sugerencia.estaLleno()){
+					//&& !itinerario.contains("Nombre: "+ sugerencia.getNombre()+", Precio: "+ sugerencia.getPrecio()+", Duracion: " + sugerencia.getDuracionEnHoras())){
+				System.out.println("Nombre: "+ sugerencia.getNombre()+", Precio: "+ sugerencia.getPrecio()+", Duracion: " + sugerencia.getDuracionEnHoras());
+			
+				Consola.comprarSugerencia(usuario, sugerencia);
+			}
 				/*if (sugerencia.esPromocion()) {
 					// usuario.comprarSugerencias(guardar infor de atracciones de las promos );
-				}*/
-			}
-			if (itinerario.contains(sugerencia)) {
+				}
+			if (itinerario.contains(sugerencia.getNombre())) {
 				usuario.restarPresupuestoYtiempo(sugerencia.getPrecio(), 
 						sugerencia.getDuracionEnHoras());
 				sugerencia.restarCupo();
-				//System.out.println(itinerario);
-			}
+				System.out.println(itinerario);
+			}*/
 		}
 	}
 
@@ -70,7 +77,9 @@ public class ParqueAvSiempreViva {
 
 	@Override
 	public String toString() {
-		return "Parque Av. Siempre Viva \n"
-				+ "Sugerencias : \n" + Arrays.toString(sugerencias) + ".";
+		return "ParqueAvSiempreViva [atracciones=" + Arrays.toString(atracciones) + ", promociones="
+				+ Arrays.toString(promociones) + ", usuarios=" + Arrays.toString(usuarios) + "]";
 	}
+
+	
 }

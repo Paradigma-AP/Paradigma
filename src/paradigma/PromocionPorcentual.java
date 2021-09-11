@@ -2,7 +2,6 @@ package paradigma;
 
 public class PromocionPorcentual extends Promocion {
 
-	private Atraccion[] atracciones;
 	private static final double DESCUENTO = 0.2;
 
 	public PromocionPorcentual(String nombre, TipoDeAtraccion tipoDePromocion, Atraccion[] atracciones) {

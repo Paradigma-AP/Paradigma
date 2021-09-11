@@ -1,14 +1,13 @@
 package paradigma;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Usuario {
 	private String nombre;
 	private int tiempoDisponibleEnHoras;
 	private int presupuesto;
 	private TipoDeAtraccion atraccionPreferida;
-	private ArrayList<Sugerencia> itinerario;
+	private ArrayList<String> itinerario;
 
 	public Usuario(String nombre, int tiempoDisponibleEnHoras, int presupuesto, TipoDeAtraccion atraccionPreferida) {
 		this.nombre = nombre;
@@ -44,20 +43,14 @@ public class Usuario {
 		this.tiempoDisponibleEnHoras -= horas;
 	}
 
-	public ArrayList<Sugerencia> getItinerario() {
+	public ArrayList<String> getItinerario() {
 		return itinerario;
 	}
-
-	public void comprarSugerencias(Sugerencia sugerencia) {
-		char respuesta;
-		Scanner sc = new Scanner(System.in);
-		System.out.println("¿Acepta S/N?");
-		respuesta = sc.nextLine().charAt(0);
-		sc.close();
-		if (respuesta == 'S') {
-			this.itinerario.add(sugerencia);
+	
+	public void agregarSugerenciaAlItinerario(Sugerencia sugerencia) {
+		ArrayList<String> itinerario = new ArrayList<String>();
+			itinerario.add("Nombre: "+ sugerencia.getNombre()+", Precio: "+ sugerencia.getPrecio()+", Duracion: " + sugerencia.getDuracionEnHoras());
 		}
-	}
 	
 	
 

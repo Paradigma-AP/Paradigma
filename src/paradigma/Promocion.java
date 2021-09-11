@@ -6,8 +6,9 @@ public abstract class Promocion extends Sugerencia {
 
 	private String nombre;
 	private TipoDeAtraccion tipoDePromocion;
-	private Atraccion[] atracciones;
+	protected Atraccion[] atracciones;
 	private boolean esPromocion = true;
+	
 
 	public Promocion(String nombre, TipoDeAtraccion tipoDePromocion, Atraccion[] atracciones) {
 		super();
