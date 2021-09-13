@@ -1,6 +1,5 @@
 package paradigma;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Consola {
@@ -11,8 +10,8 @@ public class Consola {
 		Sugerencia[] sugerencias = ParqueAvSiempreViva.getSugerencias();
 		for (Usuario usuario : usuarios) {
 			ParqueAvSiempreViva.ordenarPorPreferencia(sugerencias, usuario.getAtraccionPreferida());
-			System.out.println("Â¡Hola " + usuario.getNombre()
-					+ "! Bienvenide al Parque Av. Siempre Viva, Â¡Donde nada puede MALIR SAL!"+ "\n");
+			System.out.println("¡Hola " + usuario.getNombre()
+					+ "! Bienvenide al Parque Av. Siempre Viva, ¡Donde nada puede MALIR SAL!"+ "\n");
 			System.out.println("Tu dinero disponible es de " + usuario.getPresupuesto() + " fichas de Tomy y Daly" + "\nTu tiempo disponible para disfrutar en el parque es de " + usuario.getTiempoDisponibleEnHoras()+ " horas\n");
 			System.out.println("Tenemos para ofrecerte las siguientes actividades:\n");
 			for (Sugerencia sugerencia : sugerencias) {
@@ -35,13 +34,13 @@ public class Consola {
 			System.out.println("\n\nTotal de fichas gastadas: " + usuario.getCostoTotalItinerario() + "\nTiempo necesario: " + usuario.getTiempoTotalItinerario());
 
 			System.out.println(usuario.getItinerario() + "\n");
-			System.out.println("Gracias por su compra, Â¡VUELVA PRONTOS!\n\n\n");
+			System.out.println("Gracias por su compra, ¡VUELVA PRONTOS!\n\n\n");
 		}
 		teclado.close();
 	}
 
 	public static void comprarSugerencia(Usuario usuario, Sugerencia sugerencia) {
-		System.out.println("\nÂ¿Te gustaria hacer esta actividad? Si/No");
+		System.out.println("\n¿Te gustaria hacer esta actividad? Si/No");
 		char respuesta;
 		respuesta = teclado.nextLine().charAt(0);
 		if (respuesta == 'S') {
