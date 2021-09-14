@@ -31,27 +31,17 @@ public class Atraccion extends Sugerencia {
 	public int getCupoDisponible() {
 		return cupoDisponible;
 	}
-	
+
 	public boolean tieneCupoDisponible() {
-		return this.cupoDisponible >0;
+		return this.cupoDisponible > 0;
 	}
 
 	public TipoDeAtraccion getTipoDeAtraccion() {
 		return tipoDeAtraccion;
 	}
 
-	/*public boolean estaLleno() {
-		return cupoDisponible == 0;
-	}*/
-
 	public void restarCupo() {
 		this.cupoDisponible -= 1;
-	}
-
-	@Override
-	public String toString() {
-		return "Atraccion: Nombre= " + nombre + ", Duraci�n= " + duracionEnHoras + ", Precio= " + precio
-				+ ", Tipo De Atraccion= " + tipoDeAtraccion + ".\n";
 	}
 
 	public boolean esPromocion() {
@@ -59,10 +49,15 @@ public class Atraccion extends Sugerencia {
 	}
 
 	@Override
+	public String toString() {
+		return "Atraccion: Nombre= " + nombre + ", Duracion= " + duracionEnHoras +" horas, Precio= " + precio
+				+ "monedas de Tomy y Daly, Tipo De Atraccion= " + tipoDeAtraccion + ".\n";
+	}
+
+	// PREGUNTAR A FEDE
+	@Override
 	public Atraccion[] getAtracciones() {
 		return null;
 	}
-	
-	
 
 }

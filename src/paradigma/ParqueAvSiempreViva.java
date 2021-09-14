@@ -8,21 +8,6 @@ public class ParqueAvSiempreViva {
 	private static Usuario[] usuarios;
 	private static Sugerencia[] sugerencias;
 
-	/*
-	 * CREAR ARCHIVO LEERLO Y GUARDARLO EN ARRAYS Sugerir visitas por pref de
-	 * usuario generar itinerarios METODO Vender ordenar atraccioes y promociones,
-	 * segun pref de usuario
-	 */
-	/*
-	 * public ArrayList<String> obtenerItinerarioPorConsola() { ArrayList<String>
-	 * itinerario = null; for(Usuario usuario : usuarios) { itinerario =
-	 * obtenerItinerario(usuario); } return itinerario; }
-	 * 
-	 * public static ArrayList<String> obtenerItinerario(Usuario usuario){
-	 * sugerirActividades(usuario, usuario.getItinerario()); return
-	 * usuario.getItinerario(); }
-	 */
-
 	public static Atraccion[] getAtracciones() {
 		return atracciones = LeerYguardarArchivos.getAtraccionesDesdeArchivos();
 	}

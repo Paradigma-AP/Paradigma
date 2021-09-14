@@ -1,6 +1,5 @@
 package paradigma;
 
-
 public class PromocionAbsoluta extends Promocion {
 
 	private static final double DESCUENTO = 3;
@@ -19,6 +18,5 @@ public class PromocionAbsoluta extends Promocion {
 		}
 		return precio - DESCUENTO;
 	}
-
 
 }

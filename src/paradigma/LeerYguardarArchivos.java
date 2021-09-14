@@ -14,7 +14,7 @@ public class LeerYguardarArchivos {
 		Usuario[] usuario = null;
 
 		try {
-			archivo = new File("Usuarios.txt");
+			archivo = new File("Entrada/Usuarios.txt");
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
 
@@ -60,7 +60,7 @@ public class LeerYguardarArchivos {
 		Atraccion[] atraccion = null;
 
 		try {
-			archivo = new File("Atracciones.txt");
+			archivo = new File("Entrada/Atracciones.txt");
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
 
@@ -106,7 +106,7 @@ public class LeerYguardarArchivos {
 		Promocion[] promociones = null;
 
 		try {
-			archivo = new File("Promociones.txt");
+			archivo = new File("Entrada/Promociones.txt");
 			fr = new FileReader(archivo);
 			br = new BufferedReader(fr);
 

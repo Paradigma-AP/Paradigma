@@ -1,6 +1,6 @@
 package paradigma;
 
-public class ParqueAvSiempreVivaApp {
+public class ParqueAvSiempreVivaApp {  
 
 	public static void main(String[] args) {
 		
@@ -10,9 +10,6 @@ public class ParqueAvSiempreVivaApp {
 		ParqueAvSiempreViva.getSugerencias();
 		
 		Consola.bienvenidaAlParque();
-		//System.out.println(parque.obtenerItinerarioPorConsola());
-
-		//System.out.println(parque.toString());
 
 	}
 }

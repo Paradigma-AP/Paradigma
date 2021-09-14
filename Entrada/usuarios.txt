@@ -1,10 +1,10 @@
 10
 Homero,13,20,gastronomia
-Marge,10,15,gastronomia
 Bart,11,14,aventura
+Ned,8,15,visita_guiada
+Marge,10,15,gastronomia
 Lisa,10,15,aventura
 Milhouse,11,14,aventura
-Ned,8,15,visita_guiada
 Rod,9,10,aventura
 Todd,9,10,aventura
 Carl,10,12,gastronomia

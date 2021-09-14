@@ -11,28 +11,33 @@ public class Consola {
 		for (Usuario usuario : usuarios) {
 			ParqueAvSiempreViva.ordenarPorPreferencia(sugerencias, usuario.getAtraccionPreferida());
 			System.out.println("¡Hola " + usuario.getNombre()
-					+ "! Bienvenide al Parque Av. Siempre Viva, ¡Donde nada puede MALIR SAL!"+ "\n");
-			System.out.println("Tu dinero disponible es de " + usuario.getPresupuesto() + " fichas de Tomy y Daly" + "\nTu tiempo disponible para disfrutar en el parque es de " + usuario.getTiempoDisponibleEnHoras()+ " horas\n");
+					+ "! Bienvenide al Parque Av. Siempre Viva, ¡Donde nada puede MALIR SAL!" + "\n");
+			System.out.println("Tu dinero disponible es de " + usuario.getPresupuesto() + " fichas de Tomy y Daly"
+					+ "\nTu tiempo disponible para disfrutar en el parque es de " + usuario.getTiempoDisponibleEnHoras()
+					+ " horas\n");
 			System.out.println("Tenemos para ofrecerte las siguientes actividades:\n");
 			for (Sugerencia sugerencia : sugerencias) {
 				if (usuario.puedeComprarSugerencia(sugerencia) && sugerencia.tieneCupoDisponible()
-						&& !usuario.getItinerario().contains(sugerencia.getNombre() + ", Precio: "
-								+ sugerencia.getPrecio() + " fichas de Tomy y Daly" + ", Duracion: " + sugerencia.getDuracionEnHoras()+ " horas")) {
+						&& !usuario.getItinerario()
+								.contains(sugerencia.getNombre() + ", Precio: " + sugerencia.getPrecio()
+										+ " fichas de Tomy y Daly" + ", Duracion: " + sugerencia.getDuracionEnHoras()
+										+ " horas")) {
 
-					System.out.println(sugerencia.getNombre() + ", Precio: " + sugerencia.getPrecio() +" fichas de Tomy y Daly" +", Duracion: " + sugerencia.getDuracionEnHoras()+ " horas");
-					if(sugerencia.esPromocion()) {
+					System.out.println(sugerencia.getNombre() + ", Precio: " + sugerencia.getPrecio()
+							+ " fichas de Tomy y Daly" + ", Duracion: " + sugerencia.getDuracionEnHoras() + " horas");
+					if (sugerencia.esPromocion()) {
 						System.out.println("Que incluye las siguientes atracciones:");
 						for (Atraccion atraccionDePromocion : sugerencia.getAtracciones()) {
 							System.out.println(atraccionDePromocion.getNombre());
-			
 						}
 					}
 					Consola.comprarSugerencia(usuario, sugerencia);
-					
 				}
 			}
-			System.out.println("\n\nTotal de fichas gastadas: " + usuario.getCostoTotalItinerario() + "\nTiempo necesario: " + usuario.getTiempoTotalItinerario());
+			CrearArchivosDeBoleteria.crearArchivo(usuario);
 
+			System.out.println("\n\nTotal de fichas gastadas: " + usuario.getCostoTotalItinerario()
+					+ "\nTiempo necesario: " + usuario.getTiempoTotalItinerario());
 			System.out.println(usuario.getItinerario() + "\n");
 			System.out.println("Gracias por su compra, ¡VUELVA PRONTOS!\n\n\n");
 		}
