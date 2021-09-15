@@ -3,7 +3,7 @@ package paradigma;
 import java.util.Scanner;
 
 public class Consola {
-	static Scanner teclado = new Scanner(System.in);
+	private static Scanner teclado = new Scanner(System.in);
 
 	public static void bienvenidaAlParque() {
 		Usuario[] usuarios = ParqueAvSiempreViva.getUsuarios();
@@ -27,7 +27,8 @@ public class Consola {
 							+ " fichas de Tomy y Daly" + ", Duracion: " + sugerencia.getDuracionEnHoras() + " horas");
 					if (sugerencia.esPromocion()) {
 						System.out.println("Que incluye las siguientes atracciones:");
-						for (Atraccion atraccionDePromocion : sugerencia.getAtracciones()) {
+						Promocion auxPromocion = (Promocion) sugerencia;
+						for (Atraccion atraccionDePromocion : auxPromocion.getAtracciones()) {
 							System.out.println(atraccionDePromocion.getNombre());
 						}
 					}
@@ -38,7 +39,12 @@ public class Consola {
 
 			System.out.println("\n\nTotal de fichas gastadas: " + usuario.getCostoTotalItinerario()
 					+ "\nTiempo necesario: " + usuario.getTiempoTotalItinerario());
-			System.out.println(usuario.getItinerario() + "\n");
+
+			String itinerarioString = "";
+			for (String itinerario : usuario.getItinerario()) {
+				itinerarioString += itinerario;
+			}
+			System.out.println(itinerarioString + "\n");
 			System.out.println("Gracias por su compra, ¡VUELVA PRONTOS!\n\n\n");
 		}
 		teclado.close();
@@ -48,7 +54,7 @@ public class Consola {
 		System.out.println("\n¿Te gustaria hacer esta actividad? Si/No");
 		char respuesta;
 		respuesta = teclado.nextLine().charAt(0);
-		if (respuesta == 'S') {
+		if (respuesta == 'S' || respuesta == 's') {
 			usuario.agregarSugerenciaAlItinerario(sugerencia);
 			usuario.restarPresupuestoYtiempo(sugerencia.getPrecio(), sugerencia.getDuracionEnHoras());
 			sugerencia.restarCupo();

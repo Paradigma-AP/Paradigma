@@ -63,7 +63,8 @@ public class Usuario {
 		this.tiempoTotalItinerario += sugerencia.getDuracionEnHoras();
 		this.itinerario.add("\n");
 		if (sugerencia.esPromocion()) {
-			for (Atraccion atraccionDePromocion : sugerencia.getAtracciones()) {
+			Promocion auxPromocion = (Promocion) sugerencia;
+			for (Atraccion atraccionDePromocion : auxPromocion.getAtracciones()) {
 				this.itinerario.add(atraccionDePromocion.getNombre() + ", Precio: " + atraccionDePromocion.getPrecio()
 						+ " fichas de Tomy y Daly" + ", Duracion: " + atraccionDePromocion.getDuracionEnHoras()
 						+ " horas");

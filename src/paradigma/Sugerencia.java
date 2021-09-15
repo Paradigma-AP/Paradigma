@@ -16,6 +16,4 @@ public abstract class Sugerencia {
 
 	public abstract void restarCupo();
 
-	public abstract Atraccion[] getAtracciones();
-
 }

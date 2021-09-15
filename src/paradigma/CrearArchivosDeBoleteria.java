@@ -9,14 +9,17 @@ public class CrearArchivosDeBoleteria {
 		try {
 			FileWriter fw = new FileWriter("Salida/" + usuario.getNombre() + ".txt");
 			fw.write("Este es el itinerario de " + usuario.getNombre() + " \n");
-			fw.write(usuario.getItinerario() + "\n");
+			String itinerarioString = "";
+			for (String itinerario : usuario.getItinerario()) {
+				itinerarioString += itinerario;	
+			}
+			fw.write(itinerarioString + "\n");
 			fw.write("Deberá pagar: " + usuario.getCostoTotalItinerario() + " fichas de Tomy y Daly."
 					+ "\nY necesitará: " + usuario.getTiempoTotalItinerario()
 					+ " horas para realizar todas las actividades!.");
 			fw.close();
-			System.out.println("Successfully wrote to the file.");
 		} catch (IOException e) {
-			System.out.println("An error occurred.");
+			System.out.println("Error al crear el archivo");
 			e.printStackTrace();
 		}
 	}

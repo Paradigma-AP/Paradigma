@@ -13,7 +13,7 @@ public class ParqueAvSiempreViva {
 	}
 
 	public static Promocion[] getPromociones() {
-		return promociones = LeerYguardarArchivos.getPromocionesDesdeArchivo();
+		return promociones = LeerYguardarArchivos.getPromocionesDesdeArchivos();
 	}
 
 	public static Usuario[] getUsuarios() {

@@ -98,7 +98,7 @@ public class LeerYguardarArchivos {
 		return atraccion;
 	}
 
-	public static Promocion[] getPromocionesDesdeArchivo() {
+	public static Promocion[] getPromocionesDesdeArchivos() {
 		File archivo = null;
 		FileReader fr = null;
 		BufferedReader br = null;

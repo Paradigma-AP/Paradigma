@@ -1,7 +1,5 @@
 package paradigma;
 
-import java.util.Arrays;
-
 public abstract class Promocion extends Sugerencia {
 
 	private String nombre;
@@ -55,18 +53,25 @@ public abstract class Promocion extends Sugerencia {
 		while (i < atracciones.length) {
 			if (atracciones[i].tieneCupoDisponible()) {
 				i++;
+			}else{
+				return false;
 			}
-			return true;
 		}
-		return false;
+		return true;
 	}
 
 	public abstract double getPrecio();
 
+	
+	
 	@Override
 	public String toString() {
-		return "Promocion: Nombre= " + nombre + ", TipoDePromocion= " + tipoDePromocion + "\n Atracciones= "
-				+ Arrays.toString(atracciones) + "\n";
+		String atraccionesString = "";
+		for (Atraccion atraccion : atracciones) {
+			atraccionesString += atraccion;	
+		}
+		return "\nPromocion: Nombre= " + nombre + ", TipoDePromocion= " + tipoDePromocion + "\n Atracciones= "
+				+ atraccionesString;
 	}
 
 }

@@ -50,14 +50,9 @@ public class Atraccion extends Sugerencia {
 
 	@Override
 	public String toString() {
-		return "Atraccion: Nombre= " + nombre + ", Duracion= " + duracionEnHoras +" horas, Precio= " + precio
-				+ "monedas de Tomy y Daly, Tipo De Atraccion= " + tipoDeAtraccion + ".\n";
+		return " \nAtraccion: Nombre= " + nombre + ", Duracion= " + duracionEnHoras +" horas, Precio= " + precio
+				+ "monedas de Tomy y Daly, Tipo De Atraccion= " + tipoDeAtraccion;
 	}
 
-	// PREGUNTAR A FEDE
-	@Override
-	public Atraccion[] getAtracciones() {
-		return null;
-	}
 
 }
