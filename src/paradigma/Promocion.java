@@ -53,7 +53,7 @@ public abstract class Promocion extends Sugerencia {
 		while (i < atracciones.length) {
 			if (atracciones[i].tieneCupoDisponible()) {
 				i++;
-			}else{
+			} else {
 				return false;
 			}
 		}
@@ -62,13 +62,11 @@ public abstract class Promocion extends Sugerencia {
 
 	public abstract double getPrecio();
 
-	
-	
 	@Override
 	public String toString() {
 		String atraccionesString = "";
 		for (Atraccion atraccion : atracciones) {
-			atraccionesString += atraccion;	
+			atraccionesString += atraccion;
 		}
 		return "\nPromocion: Nombre= " + nombre + ", TipoDePromocion= " + tipoDePromocion + "\n Atracciones= "
 				+ atraccionesString;

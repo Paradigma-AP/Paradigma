@@ -36,10 +36,8 @@ public class Consola {
 				}
 			}
 			CrearArchivosDeBoleteria.crearArchivo(usuario);
-
 			System.out.println("\n\nTotal de fichas gastadas: " + usuario.getCostoTotalItinerario()
 					+ "\nTiempo necesario: " + usuario.getTiempoTotalItinerario());
-
 			String itinerarioString = "";
 			for (String itinerario : usuario.getItinerario()) {
 				itinerarioString += itinerario;

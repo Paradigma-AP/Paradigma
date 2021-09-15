@@ -75,8 +75,8 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Nombre= " + nombre + ", Tiempo disponible= " + tiempoDisponibleEnHoras
-				+ " horas, Presupuesto= " + presupuesto + " monedas de Tomy y Daly, Atraccion preferida= " + atraccionPreferida + "\n";
+		return "Nombre= " + nombre + ", Tiempo disponible= " + tiempoDisponibleEnHoras + " horas, Presupuesto= "
+				+ presupuesto + " monedas de Tomy y Daly, Atraccion preferida= " + atraccionPreferida + "\n";
 	}
 
 }

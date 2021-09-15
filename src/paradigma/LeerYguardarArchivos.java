@@ -34,8 +34,7 @@ public class LeerYguardarArchivos {
 				usuario[contador++] = new Usuario(nombre, tiempoDisponibleEnHoras, presupuesto,
 						tipoDeAtraccionPreferida);
 				linea = br.readLine();
- 			}
-
+			}
 			return usuario;
 
 		} catch (IOException e) {
@@ -47,7 +46,6 @@ public class LeerYguardarArchivos {
 				}
 			} catch (Exception e2) {
 				e2.printStackTrace();
-
 			}
 		}
 		return usuario;
@@ -80,7 +78,6 @@ public class LeerYguardarArchivos {
 				atraccion[contador++] = new Atraccion(nombre, duracionEnHoras, precio, cupoDisponible, tipoDeAtraccion);
 				linea = br.readLine();
 			}
-
 			return atraccion;
 
 		} catch (IOException e) {
@@ -92,7 +89,6 @@ public class LeerYguardarArchivos {
 				}
 			} catch (Exception e2) {
 				e2.printStackTrace();
-
 			}
 		}
 		return atraccion;

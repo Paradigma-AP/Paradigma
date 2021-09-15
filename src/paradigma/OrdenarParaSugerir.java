@@ -3,6 +3,7 @@ package paradigma;
 import java.util.Comparator;
 
 public class OrdenarParaSugerir implements Comparator<Sugerencia> {
+
 	TipoDeAtraccion atraccionFavorita;
 
 	public OrdenarParaSugerir(TipoDeAtraccion atraccionFavorita) {

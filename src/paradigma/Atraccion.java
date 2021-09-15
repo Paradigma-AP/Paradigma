@@ -32,12 +32,12 @@ public class Atraccion extends Sugerencia {
 		return cupoDisponible;
 	}
 
-	public boolean tieneCupoDisponible() {
-		return this.cupoDisponible > 0;
-	}
-
 	public TipoDeAtraccion getTipoDeAtraccion() {
 		return tipoDeAtraccion;
+	}
+
+	public boolean tieneCupoDisponible() {
+		return this.cupoDisponible > 0;
 	}
 
 	public void restarCupo() {
@@ -50,9 +50,8 @@ public class Atraccion extends Sugerencia {
 
 	@Override
 	public String toString() {
-		return " \nAtraccion: Nombre= " + nombre + ", Duracion= " + duracionEnHoras +" horas, Precio= " + precio
+		return " \nAtraccion: Nombre= " + nombre + ", Duracion= " + duracionEnHoras + " horas, Precio= " + precio
 				+ "monedas de Tomy y Daly, Tipo De Atraccion= " + tipoDeAtraccion;
 	}
-
 
 }

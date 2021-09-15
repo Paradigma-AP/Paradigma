@@ -3,6 +3,7 @@ package paradigma;
 import java.util.Arrays;
 
 public class ParqueAvSiempreViva {
+
 	private static Atraccion[] atracciones;
 	private static Promocion[] promociones;
 	private static Usuario[] usuarios;

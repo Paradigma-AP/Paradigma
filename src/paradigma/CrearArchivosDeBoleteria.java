@@ -11,7 +11,7 @@ public class CrearArchivosDeBoleteria {
 			fw.write("Este es el itinerario de " + usuario.getNombre() + " \n");
 			String itinerarioString = "";
 			for (String itinerario : usuario.getItinerario()) {
-				itinerarioString += itinerario;	
+				itinerarioString += itinerario;
 			}
 			fw.write(itinerarioString + "\n");
 			fw.write("Deberá pagar: " + usuario.getCostoTotalItinerario() + " fichas de Tomy y Daly."
